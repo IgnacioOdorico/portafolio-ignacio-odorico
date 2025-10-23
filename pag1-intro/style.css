@@ -5,20 +5,20 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   background: radial-gradient(circle at center, #0a0a0a 0%, #050505 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow: hidden;
   color: #e6e6e6;
   font-family: 'Poppins', sans-serif;
+  overflow-x: hidden; /* Permite scroll vertical si hace falta */
 }
 
 /* Fondo animado tipo circuito */
 .background {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   background: repeating-linear-gradient(
@@ -47,20 +47,21 @@ body {
 .container {
   z-index: 2;
   text-align: center;
+  padding: 2rem 1rem;
 }
 
 /* Título animado tipo typing */
 .title {
   font-family: 'Orbitron', sans-serif;
-  font-size: 3.5rem;
-  letter-spacing: 4px;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  letter-spacing: 3px;
   color: #e6e6e6;
   text-shadow: 0 0 15px #00a2ff;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid #00a2ff;
   width: 0;
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
   animation: typing 2.8s steps(12) forwards, blink 0.75s step-end infinite;
 }
 
@@ -75,12 +76,12 @@ body {
 
 /* Imagen del robot */
 .robot-img {
-  width: 500px;
-  max-width: 80%;
+  width: min(80%, 380px);
   border: 2px solid #00a2ff;
   border-radius: 10px;
   box-shadow: 0 0 25px rgba(0, 162, 255, 0.3);
-  margin-bottom: 30px;
+  margin-bottom: 1.8rem;
+  object-fit: cover;
 }
 
 /* Botón con animación */
@@ -89,12 +90,14 @@ body {
   color: #e6e6e6;
   border: 2px solid #00a2ff;
   border-radius: 30px;
-  padding: 14px 32px;
-  font-size: 1.1rem;
+  padding: 12px 28px;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 0 10px rgba(0, 162, 255, 0.4);
   animation: pulse 2s infinite;
+  white-space: nowrap;
+  margin-bottom: 2rem;
 }
 
 @keyframes pulse {
@@ -108,7 +111,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Pantalla de carga al presionar */
+/* Pantalla de carga */
 .loading-screen {
   position: fixed;
   inset: 0;
@@ -118,12 +121,14 @@ body {
   align-items: center;
   justify-content: center;
   font-family: 'Courier New', monospace;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   flex-direction: column;
   opacity: 0;
   pointer-events: none;
   transition: opacity 1s ease;
   z-index: 10;
+  padding: 1rem;
+  text-align: center;
 }
 
 .loading-screen.active {
@@ -132,14 +137,70 @@ body {
 }
 
 .loading-text {
-  white-space: pre;
+  white-space: pre-wrap;
   text-align: left;
-  width: 260px;
+  width: 100%;
+  max-width: 260px;
 }
 
 footer {
-  position: absolute;
+  position: relative;
   bottom: 10px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   opacity: 0.6;
+  text-align: center;
+  width: 100%;
 }
+
+/* 🔹 Responsive */
+@media (max-width: 768px) {
+  body {
+    justify-content: flex-start;
+    padding-top: 2rem;
+  }
+
+  .title {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .robot-img {
+    width: 85%;
+    margin-bottom: 1.2rem;
+  }
+
+  .continue-btn {
+    font-size: 1rem;
+    padding: 10px 24px;
+  }
+
+  footer {
+    font-size: 0.75rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .robot-img {
+    width: 90%;
+  }
+
+  .continue-btn {
+    font-size: 0.85rem;
+    padding: 10px 22px;
+  }
+
+  .loading-text {
+    font-size: 1rem;
+  }
+
+  footer {
+    font-size: 0.7rem;
+  }
+}
+
