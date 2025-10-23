@@ -482,105 +482,220 @@ body {
   }
 }
 
-/* Celulares (hasta 768px) */
+/* 📱 OPTIMIZACIÓN MÓVIL MEJORADA */
 @media (max-width: 768px) {
-  /* 🔹 Ocultar imagen del costado */
-  .img-derecha {
-    display: none;
-  }
 
   /* 🔹 Navbar */
+  .navegacion {
+    padding: 8px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+  }
+
   .navegacion ul {
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
-    padding: 0;
   }
 
-  .navegacion li {
-    font-size: 14px;
+  .navegacion li a {
+    font-size: 0.9rem;
   }
 
-  /* 🔹 Sección principal */
+  .navegacion img {
+    max-width: 28px;
+  }
+
+  /* 🔹 Hero */
   .hero {
     flex-direction: column;
-    padding: 40px 0;
+    padding: 2rem 1rem;
+    text-align: center;
+    gap: 1rem;
   }
 
   .perfil-img {
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
   }
 
   .info h1 {
-    font-size: 2.3rem;
+    font-size: 1.8rem;
   }
 
   .info .rol {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   /* 🔹 Sobre mí */
+  .sobre-mi {
+    padding: 2rem 1rem;
+  }
+
   .sobre-mi-card {
     width: 100%;
-    padding: 25px;
+    padding: 1.2rem;
+    font-size: 1rem;
+    border-radius: 12px;
   }
 
   .sobre-mi-card h2 {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 
   .sobre-mi-card p {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 
-  /* 🔹 Tecnologías */
-  .tarjetas-tec {
-    grid-template-columns: 1fr;
-    padding: 20px;
-  }
-  .tecnologias h2{
-    font-size: 2rem;
-  }
+  /* 🔹 Proyectos (versión móvil mejorada) */
+.proyectos {
+  width: 92%;
+  margin: 2rem auto;
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  background-color: var(--azul-oscuro);
+  box-shadow: var(--sombra-oscura);
+}
 
-  .categoria h3 {
-    font-size: 1.2rem;
-  }
+.proyectos h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
 
-  .iconos img {
-    width: 50px;
-  }
+/* ✅ Grid más estrecho y centrado */
+.grid-proyectos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+/* ✅ Card más liviana visualmente */
+.proyectos-card {
+  background-color: var(--beige);
+  color: var(--marron-oscuro);
+  width: 100%;
+  max-width: 340px; /* límite razonable */
+  border-radius: 10px;
+  padding: 0.8rem;
+  text-align: left;
+  box-shadow: var(--sombra-luz);
+}
+
+/* ✅ Imagen más chica y recortada */
+.proyectos-card-img {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.proyectos-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ✅ Título y texto más compactos */
+.proyectos-card h3 {
+  font-size: 1.1rem;
+  color: var(--celeste);
+  margin-bottom: 0.3rem;
+}
+
+.proyectos-card p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+}
+
+/* ✅ Botón más pequeño */
+.proyectos-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--azul-oscuro);
+  color: var(--celeste);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.proyectos-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+.proyectos-btn:hover {
+  background-color: var(--marron-oscuro);
+}
+
 
   /* 🔹 Contactos */
   .contactos {
     width: 95%;
+    flex-direction: column;
+    padding: 2rem 1rem 4rem;
   }
 
-  .contactos h2 {
-    font-size: 2rem;
+  .contenedor-contactos {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 
   .contacto-col {
-    min-width: 40%;
-    text-align: center;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    padding: 1rem;
   }
 
   .contacto-col p {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   .btn-cv {
+    position: static;
     width: 90%;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
-  /*Proyectos*/
-  .grid-proyectos{
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  /* 🔹 Menú de temas */
+  .theme-menu {
+    top: auto;
+    bottom: 1rem;
+    right: 1rem;
   }
-  .proyectos h2{
-    font-size: 2rem;
+
+  #theme-btn {
+    font-size: 1.4rem;
+  }
+
+  /* 🔹 Ajustes globales */
+  h1, h2 {
+    font-size: 1.8rem;
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+
+  /* 🔹 Cursor personalizado: ocultarlo en móvil */
+  #cursor {
+    display: none !important;
   }
 }
+
 
 
 
