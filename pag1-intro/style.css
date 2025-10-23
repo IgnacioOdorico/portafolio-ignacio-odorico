@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: radial-gradient(circle at center, #0a0a0a 0%, #050505 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  color: #e6e6e6;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Fondo animado tipo circuito */
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+      90deg,
+      rgba(0, 162, 255, 0.05) 0px,
+      rgba(0, 162, 255, 0.05) 2px,
+      transparent 2px,
+      transparent 60px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 162, 255, 0.05) 0px,
+      rgba(0, 162, 255, 0.05) 2px,
+      transparent 2px,
+      transparent 60px
+    );
+  animation: moveBG 15s linear infinite;
+  z-index: 0;
+}
+
+@keyframes moveBG {
+  from { background-position: 0 0; }
+  to { background-position: 60px 60px; }
+}
+
+.container {
+  z-index: 2;
+  text-align: center;
+}
+
+/* Título animado tipo typing */
+.title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3.5rem;
+  letter-spacing: 4px;
+  color: #e6e6e6;
+  text-shadow: 0 0 15px #00a2ff;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #00a2ff;
+  width: 0;
+  margin-bottom: 30px;
+  animation: typing 2.8s steps(12) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 16ch; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Imagen del robot */
+.robot-img {
+  width: 500px;
+  max-width: 80%;
+  border: 2px solid #00a2ff;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 162, 255, 0.3);
+  margin-bottom: 30px;
+}
+
+/* Botón con animación */
+.continue-btn {
+  background: #001f3f;
+  color: #e6e6e6;
+  border: 2px solid #00a2ff;
+  border-radius: 30px;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 162, 255, 0.4);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 8px rgba(0, 162, 255, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(0, 162, 255, 0.7); }
+  100% { box-shadow: 0 0 8px rgba(0, 162, 255, 0.3); }
+}
+
+.continue-btn:hover {
+  background: #003366;
+  transform: scale(1.05);
+}
+
+/* Pantalla de carga al presionar */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: #050505;
+  color: #00a2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  z-index: 10;
+}
+
+.loading-screen.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.loading-text {
+  white-space: pre;
+  text-align: left;
+  width: 260px;
+}
+
+footer {
+  position: absolute;
+  bottom: 10px;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
