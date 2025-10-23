@@ -26,6 +26,7 @@ body {
 /* 🔹 Navbar */
 .navegacion {
   position: sticky;
+  z-index: 9999;
   top: 0;
   background: var(--bg-marron-oscuro);
   padding: 10px 0;
@@ -396,7 +397,7 @@ body {
 /* menú */
 .theme-menu {
   position: fixed;
-  top: 1rem;
+  top: 4rem;
   right: 1rem;
   z-index: 1000; 
 }

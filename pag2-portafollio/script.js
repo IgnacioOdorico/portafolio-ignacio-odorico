@@ -218,20 +218,35 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener("DOMContentLoaded", () => {
 
   // --- 1. Efecto de aparición (scroll reveal) ---
-  const secciones = document.querySelectorAll(".hero, .sobre-mi, .proyectos, .tecnologias, .contactos");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  // Detectar si es móvil para ajustar sensibilidad
+  const isMobile = window.innerWidth < 768;
+
+  // RootMargin amplía el área de detección antes de entrar al viewport
+  const observerOptions = {
+    threshold: isMobile ? 0.1 : 0.3,
+    rootMargin: isMobile ? "0px 0px -15% 0px" : "0px 0px -5% 0px"
+  };
+
+  const secciones = document.querySelectorAll(
+    ".hero, .sobre-mi, .proyectos, .tecnologias, .contactos"
+  );
+
+  // Aplicar clase .oculto al inicio
+  secciones.forEach((sec) => {
+    sec.classList.add("oculto");
+  });
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
+        observer.unobserve(entry.target); // solo se anima una vez
       }
     });
-  }, { threshold: 0.3 });
+  }, observerOptions);
 
-  secciones.forEach(sec => {
-    sec.classList.add("oculto");
-    observer.observe(sec);
-  });
+  // Iniciar observación
+  secciones.forEach((sec) => observer.observe(sec));
 
   // --- 2. Entrada animada en Hero ---
   const perfil = document.querySelector(".perfil-img");
@@ -249,36 +264,42 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- 3. Cascada de aparición en proyectos ---
-  const proyectosSection = document.querySelector(".proyectos");
-  const proyectos = document.querySelectorAll(".proyectos-card");
+const proyectosSection = document.querySelector(".proyectos");
+const proyectos = document.querySelectorAll(".proyectos-card");
 
-  // Estado inicial
-  proyectos.forEach(card => {
-    card.style.opacity = "0";
-    card.style.transform = "translateY(40px)";
-  });
+// Estado inicial
+proyectos.forEach((card) => {
+  card.style.opacity = "0";
+  card.style.transform = "translateY(40px)";
+});
 
-  const observerProyectos = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        proyectos.forEach((card, i) => {
-          setTimeout(() => {
-            card.animate(
-              [
-                { opacity: 0, transform: "translateY(40px)" },
-                { opacity: 1, transform: "translateY(0)" }
-              ],
-              { duration: 700, fill: "forwards", easing: "ease-out" }
-            );
-          }, 200 * i);
-        });
-        observerProyectos.unobserve(proyectosSection); // solo una vez
-      }
-    });
-  }, { threshold: 0.3 });
+  // Configuración sensible al dispositivo
+  const observerProyectos = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          proyectos.forEach((card, i) => {
+            setTimeout(() => {
+              card.animate(
+                [
+                  { opacity: 0, transform: "translateY(40px)" },
+                  { opacity: 1, transform: "translateY(0)" },
+                ],
+                { duration: 700, fill: "forwards", easing: "ease-out" }
+              );
+            }, 200 * i);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: window.innerWidth < 768 ? 0.1 : 0.3,
+      rootMargin: window.innerWidth < 768 ? "0px 0px -15% 0px" : "0px 0px -5% 0px",
+    }
+  );
 
   if (proyectosSection) observerProyectos.observe(proyectosSection);
-
 
   // --- 4. Parallax en Hero ---
   window.addEventListener("scroll", () => {
