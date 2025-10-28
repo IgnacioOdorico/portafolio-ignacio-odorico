@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '--sombra-luz': '10px 10px 15px #bb719b', 
         '--sombra-oscura':'5px 5px 10px #baa5ff'
     },
-    synthwave:{ /*faltaaaa*/
+    synthwave:{ 
         '--bg-marron-oscuro': 'linear-gradient(135deg, #240046, #3c096c, #5a189a)', /* fondo con gradiente violeta oscuro */
         '--marron-oscuro': '#240046', /* base principal */
         '--azul-oscuro': '#10002b',  /* secciones profundas */
@@ -90,16 +90,16 @@ document.addEventListener('DOMContentLoaded', () => {
         '--sombra-luz': '0 0 25px #ff00ff', /* brillo rosado */
         '--sombra-oscura': '0 0 15px #240046' /* sombra profunda */ 
     },
-    system: { 
-        '--bg-marron-oscuro':'#2e8b57',
-        '--marron-oscuro':'#b2ec5d',
-        '--azul-oscuro':'#a9ba9d',
-        '--beige':'#682860',
-        '--celeste':'#002147',
-        '--text-menu': '#fffdf6',
-        '--fondo-menu': 'rgba(28, 26, 28, 0.7)', 
-        '--sombra-luz': '10px 10px 15px #b2ec5d', 
-        '--sombra-oscura':'5px 5px 10px #002147'
+    cakes: { 
+        '--bg-marron-oscuro':'#68f1e6ff',
+        '--marron-oscuro':'#391332ff',
+        '--azul-oscuro':'#f8a9ebff',
+        '--beige':'#f2f3c2ff',
+        '--celeste':'#77dfffff',
+        '--text-menu': '#080808ff',
+        '--fondo-menu': 'rgba(234, 233, 162, 0.7)', 
+        '--sombra-luz': '10px 10px 15px #8c116fff', 
+        '--sombra-oscura':'5px 5px 10px #463153ff'
     }
   };
 
