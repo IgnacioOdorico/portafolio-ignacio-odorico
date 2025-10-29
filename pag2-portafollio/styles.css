@@ -673,6 +673,7 @@ body {
   .contenedor-sobre-mi {
     width: 95%;          /* 🔸 antes era 85%, ahora ocupa más del ancho */
     gap: 10px;           /* 🔸 reduce el espacio entre imagen y texto */
+    padding-top: 1rem;
   }
 
   .contenedor-flotante {
