@@ -671,32 +671,34 @@ body {
     font-size: 1.1rem;
   }
 
-  /* 🔹 Sobre mí */
+  /* 🔹 SOBRE MÍ (mantiene forma horizontal y reduce tamaño) */
+  .sobre-mi {
+    padding: 30px 10px;
+  }
+
   .contenedor-sobre-mi {
-    gap: 15px;
+    width: 95%;          /* 🔸 antes era 85%, ahora ocupa más del ancho */
+    gap: 10px;           /* 🔸 reduce el espacio entre imagen y texto */
   }
 
   .contenedor-flotante {
-    max-width: 35%;
+    max-width: 45%;      /* 🔸 imagen ocupa más espacio */
   }
 
   .sobre-mi-card {
-    flex: 2;
-    padding: 25px;
-  }
-
-  .img-flotante {
-    width: 90%;
-  }
-
-  .sobre-mi-card h2 {
-    font-size: 2rem;
+    max-width: 55%;      /* 🔸 texto un poco más ancho también */
+    padding: 1.2rem;
+    font-size: 1rem;
   }
 
   .sobre-mi-card p {
     font-size: 1rem;
+    line-height: 1.5;
   }
 
+  .sobre-mi-card h2 {
+    font-size: 1.8rem;
+  }
 
   /* 🔹 Proyectos (versión móvil mejorada) */
   .proyectos {
