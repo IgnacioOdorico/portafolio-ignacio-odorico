@@ -133,20 +133,51 @@ body {
 }
 
 
-/* 🔹 Sobre mi */
+/* ===================================== */
+/* 🔹 Sección SOBRE MÍ*/
+/* ===================================== */
+
 .sobre-mi {
   background: var(--bg-marron-oscuro);
-  padding: 40px 20px;
+  padding: 60px;
   display: flex;
   justify-content: center;
 }
 
+.contenedor-sobre-mi {
+  display: flex;
+  width: 85%;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* 🔸 Imagen flotante (¼ del ancho) */
+.contenedor-flotante {
+  flex: 1;
+  max-width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-flotante {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  animation: flotar 6s ease-in-out infinite, brillo 4s ease-in-out infinite alternate;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.4));
+  transform-origin: center bottom;
+  transition: transform 0.3s ease;
+}
+
+/* 🔸 Tarjeta de texto (¾ del ancho) */
 .sobre-mi-card {
+  flex: 3;
   background-color: var(--beige);
   color: var(--marron-oscuro);
-  padding: 30px;
+  padding: 40px;
   border-radius: 15px;
-  width: 85%;
   text-align: center;
   box-shadow: var(--sombra-oscura);
 }
@@ -154,12 +185,33 @@ body {
 .sobre-mi-card h2 {
   font-size: 3rem;
   margin-bottom: 20px;
+  color: var(--celeste);
 }
 
 .sobre-mi-card p {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 1.6;
 }
+
+/* 🔹 Animaciones */
+@keyframes flotar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-35px);
+  }
+}
+
+@keyframes brillo {
+  0% {
+    filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.4)) brightness(1);
+  }
+  100% {
+    filter: drop-shadow(0 18px 40px rgba(62, 157, 237, 0.5)) brightness(1.2);
+  }
+}
+
 
 
 /* ======= Sección Proyectos ======= */
@@ -505,7 +557,26 @@ body {
     width: 100%;
     height: 100%;
   }
+  .contenedor-sobre-mi {
+    gap: 20px;
+  }
 
+  .contenedor-flotante {
+    max-width: 30%;
+  }
+
+  .sobre-mi-card {
+    flex: 2.5;
+    padding: 30px;
+  }
+
+  .sobre-mi-card h2 {
+    font-size: 2.5rem;
+  }
+
+  .sobre-mi-card p {
+    font-size: 1.2rem;
+  }
   .info h1 {
     font-size: 3rem;
   }
@@ -593,25 +664,31 @@ body {
   }
 
   /* 🔹 Sobre mí */
-  .sobre-mi {
-    padding: 2rem 1rem;
+  .contenedor-sobre-mi {
+    gap: 15px;
+  }
+
+  .contenedor-flotante {
+    max-width: 35%;
   }
 
   .sobre-mi-card {
-    width: 100%;
-    padding: 1.2rem;
-    font-size: 1rem;
-    border-radius: 12px;
+    flex: 2;
+    padding: 25px;
+  }
+
+  .img-flotante {
+    width: 90%;
   }
 
   .sobre-mi-card h2 {
-    font-size: 1.7rem;
+    font-size: 2rem;
   }
 
   .sobre-mi-card p {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 1rem;
   }
+
 
   /* 🔹 Proyectos (versión móvil mejorada) */
   .proyectos {
@@ -765,7 +842,17 @@ body {
 
 /* Pantallas muy pequeñas (menos de 480px) */
 @media (max-width: 480px) {
-  
+  .img-flotante {
+    max-width: 150px;
+  }
+
+  .sobre-mi-card {
+    padding: 20px;
+  }
+
+  .sobre-mi-card p {
+    font-size: 1rem;
+  }
   .flip-container {
     width: 180px;
     height: 180px;
