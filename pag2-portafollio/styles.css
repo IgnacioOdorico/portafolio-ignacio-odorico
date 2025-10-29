@@ -560,6 +560,7 @@ body {
   }
   .contenedor-sobre-mi {
     gap: 20px;
+    padding-top: 1rem;
   }
 
   .contenedor-flotante {
