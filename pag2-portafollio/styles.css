@@ -139,7 +139,6 @@ body {
 
 .sobre-mi {
   background: var(--bg-marron-oscuro);
-  padding: 60px;
   display: flex;
   justify-content: center;
 }
@@ -149,7 +148,6 @@ body {
   width: 85%;
   align-items: center;
   justify-content: center;
-  gap: 40px;
 }
 
 /* 🔸 Imagen flotante (¼ del ancho) */
@@ -672,10 +670,6 @@ body {
   }
 
   /* 🔹 SOBRE MÍ (mantiene forma horizontal y reduce tamaño) */
-  .sobre-mi {
-    padding: 30px 10px;
-  }
-
   .contenedor-sobre-mi {
     width: 95%;          /* 🔸 antes era 85%, ahora ocupa más del ancho */
     gap: 10px;           /* 🔸 reduce el espacio entre imagen y texto */
