@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "--beige": "#253745",
       "--celeste": "#4a5c6a",
       "--text-menu": "#ccd0cf",
-      "--fondo-menu": "#9ba8ab",
+      "--fondo-menu": "#384f56ff",
       "--sombra-luz": "10px 10px 15px #888888",
       "--sombra-oscura": "5px 5px 10px #000000",
     },
