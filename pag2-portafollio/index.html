@@ -11,7 +11,6 @@
   <header class="navegacion">
     <nav>
       <ul>
-         <!-- FALTAN ICONOSSS-->
         <li> <a href="#contactos"><img src="img/img-iconos/contactos-icono.svg" alt="icono de contactos">Contactos</a></li>
         <li> <a href="#tecnologias"><img src="img/img-iconos/tecnologias-icono.svg" alt="icono de tecnologias"> Tecnologías</a></li>
         <li> <a href="#proyectos"><img src="img/img-iconos/proyectos-icono.svg" alt="icono de proyectos">Proyectos</a></li>
@@ -21,11 +20,23 @@
     </nav>
   </header>
 
-  <!-- 🔹 Sección principal -->
+  <!-- 🔹 Sección principal --> 
   <section class="hero" id="hero">
     <div class="perfil">
-      <img src="img/img-yo.png" alt="Foto de perfil" class="perfil-img">
+      <div class="flip-container">
+        <div class="flip-card">
+          <!-- Frente (imagen estilo dibujo/anime) -->
+          <div class="flip-front">
+            <img src="img/img-yo.png" alt="Foto dibujo" class="perfil-img">
+          </div>
+          <!-- Reverso (foto real) -->
+          <div class="flip-back">
+            <img src="img/foto-real.jpg" alt="Foto real de Ignacio" class="perfil-img">
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="info">
       <h1>Ignacio Odorico</h1>
       <p class="rol">Programador</p>
