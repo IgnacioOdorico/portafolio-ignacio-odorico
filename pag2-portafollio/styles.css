@@ -502,6 +502,18 @@ body {
   cursor: pointer;
   color: var(--text);
 }
+/* icono del botón de tema */
+.theme-icon {
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+  filter: drop-shadow(0 0 2px var(--azul-oscuro));
+  transition: transform 0.3s ease;
+}
+
+#theme-btn:hover .theme-icon {
+  transform: rotate(20deg);
+}
 #theme-list { 
   list-style: none;
   padding: .5rem;
@@ -628,7 +640,7 @@ body {
   }
 
   .navegacion li a {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   .navegacion img {
