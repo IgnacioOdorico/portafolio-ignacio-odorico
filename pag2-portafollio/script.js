@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const banner = document.getElementById("audio-banner");
   const enableAudioBtn = document.getElementById("enable-audio");
   const root = document.documentElement;
+  const character = document.querySelector(".img-flotante"); // 🔸 referencia al muñequito
 
   // ==========================
   // 🎨 TEMAS PERSONALIZADOS
@@ -80,16 +81,16 @@ document.addEventListener("DOMContentLoaded", () => {
       "--sombra-luz": "10px 10px 15px #bb719b",
       "--sombra-oscura": "5px 5px 10px #baa5ff",
     },
-    synthwave: {
-      "--bg-marron-oscuro": "linear-gradient(135deg,#240046,#3c096c,#5a189a)",
-      "--marron-oscuro": "#240046",
-      "--azul-oscuro": "#10002b",
-      "--beige": "#ffb3c1",
-      "--celeste": "#00f5ff",
-      "--text-menu": "#ffffff",
-      "--fondo-menu": "rgba(58,12,163,0.8)",
-      "--sombra-luz": "0 0 25px #ff00ff",
-      "--sombra-oscura": "0 0 15px #240046",
+    ruby_dev: {
+      "--bg-marron-oscuro": "linear-gradient(135deg,#3c0000,#670010)",
+      "--marron-oscuro": "#3c0000",
+      "--azul-oscuro": "#960018",
+      "--beige": "#cb4c46",
+      "--celeste": "#ff8478",
+      "--text-menu": "#030303ff",
+      "--fondo-menu": "rgba(187, 51, 76, 0.74)",
+      "--sombra-luz": "0 0 25px #ff0000ff",
+      "--sombra-oscura": "0 0 15px #3b1111ff",
     },
     cakes: {
       "--bg-marron-oscuro": "#68f1e6",
@@ -104,18 +105,55 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
-  function applyThemeVars(varsObj) {
-    Object.entries(varsObj).forEach(([k, v]) => root.style.setProperty(k, v));
-    localStorage.setItem("selectedTheme", JSON.stringify(varsObj));
+  // ==========================
+  // 🧍 PERSONAJES SEGÚN TEMA
+  // ==========================
+  const CHARACTER_IMAGES = {
+    light: "img/personajes/personaje_original.png",
+    dark: "img/personajes/personaje_dark.png",
+    retro: "img/personajes/personaje_retro.png",
+    cyberpunk: "img/personajes/personaje_cyberpunk.png",
+    paper: "img/personajes/personaje_paper.png",
+    aurora: "img/personajes/personaje_aurora.png",
+    ruby_dev: "img/personajes/personaje_ruby.png",
+    cakes: "img/personajes/personaje_candy.png", //falta
+  };
+
+  // ==========================
+  // 🌈 FUNCIÓN APLICAR TEMA + PERSONAJE
+  // ==========================
+  function applyTheme(themeName) {
+    const vars = THEMES[themeName];
+    if (vars) {
+      Object.entries(vars).forEach(([k, v]) => root.style.setProperty(k, v));
+      localStorage.setItem("selectedThemeName", themeName);
+    }
+
+    // 🔄 Cambiar muñequito
+    if (character && CHARACTER_IMAGES[themeName]) {
+      const oldSrc = character.src;
+      character.style.transition = "opacity 0.2s ease"; // más rápido
+      character.style.opacity = "0";
+
+      setTimeout(() => {
+        character.src = CHARACTER_IMAGES[themeName];
+        character.style.opacity = "1";
+      }, 200);
+    }
+
   }
 
-  const savedTheme = localStorage.getItem("selectedTheme");
-  if (savedTheme) {
-    try {
-      applyThemeVars(JSON.parse(savedTheme));
-    } catch (e) {}
+  // ==========================
+  // 💾 Cargar tema guardado
+  // ==========================
+  const savedThemeName = localStorage.getItem("selectedThemeName");
+  if (savedThemeName && THEMES[savedThemeName]) {
+    applyTheme(savedThemeName);
   }
 
+  // ==========================
+  // ⚙️ Interacción menú de temas
+  // ==========================
   btn.addEventListener("click", (e) => {
     e.stopPropagation();
     const hidden = list.classList.toggle("hidden");
@@ -131,14 +169,12 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
-
   document.addEventListener("click", () => list.classList.add("hidden"));
 
   list.addEventListener("click", (e) => {
     const li = e.target.closest("li");
     if (li?.dataset.theme) {
-      const vars = THEMES[li.dataset.theme];
-      if (vars) applyThemeVars(vars);
+      applyTheme(li.dataset.theme);
       list.classList.add("hidden");
     }
   });
