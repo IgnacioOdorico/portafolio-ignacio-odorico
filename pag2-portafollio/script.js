@@ -293,6 +293,65 @@ document.addEventListener("DOMContentLoaded", () => {
     el.addEventListener("mouseenter", () => cursor.classList.add("hover"));
     el.addEventListener("mouseleave", () => cursor.classList.remove("hover"));
   });
+
+  // ==========================
+  // 🦖 MASCOTA DEL NAVBAR (YOSHI)
+  // ==========================
+  const mascotaImg = document.getElementById('mascota-img');
+  const mascotaContainer = document.getElementById('navbar-mascota');
+  
+  if (mascotaImg && mascotaContainer) {
+    const framesRight = [
+      'img/yoshis para navbar/izquierda a derecha/img1 yoshi.png',
+      'img/yoshis para navbar/izquierda a derecha/img2 yoshi.png',
+      'img/yoshis para navbar/izquierda a derecha/img3  yoshi.png',
+      'img/yoshis para navbar/izquierda a derecha/img4  yoshi.png',
+      'img/yoshis para navbar/izquierda a derecha/img5  yoshi.png'
+    ];
+    const framesLeft = [
+      'img/yoshis para navbar/derecha a izquierda/img1 yoshi.png',
+      'img/yoshis para navbar/derecha a izquierda/img2 yoshi.png',
+      'img/yoshis para navbar/derecha a izquierda/img3 yoshi.png',
+      'img/yoshis para navbar/derecha a izquierda/img4 yoshi.png',
+      'img/yoshis para navbar/derecha a izquierda/img5 yoshi.png'
+    ];
+
+    // Precargar imágenes para que la animación sea fluida
+    [...framesRight, ...framesLeft].forEach(src => { 
+      const img = new Image(); 
+      img.src = src; 
+    });
+
+    let currentFrame = 0;
+    let positionX = -50;
+    let direction = 1; // 1 = derecha, -1 = izquierda
+    let speed = 1.2; // Velocidad de caminata
+
+    // 1. Animación del Sprite
+    setInterval(() => {
+      currentFrame = (currentFrame + 1) % 5;
+      mascotaImg.src = direction === 1 ? framesRight[currentFrame] : framesLeft[currentFrame];
+    }, 120);
+
+    // 2. Animación de Movimiento
+    function walkMascot() {
+      positionX += speed * direction;
+      
+      const navWidth = document.querySelector('.navegacion').offsetWidth;
+      
+      // Rebote en los bordes
+      if (positionX > navWidth + 50) {
+        direction = -1; // dar la vuelta hacia izquierda
+      } 
+      else if (positionX < -50) {
+        direction = 1; // dar la vuelta hacia derecha
+      }
+      
+      mascotaContainer.style.transform = `translateX(${positionX}px)`;
+      requestAnimationFrame(walkMascot);
+    }
+    
+    walkMascot();
+  }
+
 });
-
-

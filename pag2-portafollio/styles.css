@@ -32,6 +32,21 @@ body {
   background: var(--bg-marron-oscuro);
   padding: 10px 0;
   text-align: right;
+  overflow: hidden; /* Evita que la mascota agrande la pantalla al salir */
+}
+
+/* 🔸 Mascota del Navbar */
+#navbar-mascota {
+  position: absolute;
+  bottom: 0px; 
+  left: -100px;
+  z-index: 1; /* Por detrás del UL que tiene z-index 10 */
+  pointer-events: none;
+}
+
+#mascota-img {
+  height: 45px; 
+  object-fit: contain;
 }
 
 .navegacion ul {
@@ -40,6 +55,8 @@ body {
   display: flex;
   justify-content: center;
   gap: 20px;
+  position: relative;
+  z-index: 10;
 }
 
 .navegacion a {
@@ -196,10 +213,12 @@ body {
 
 /* 🔹 Animaciones */
 @keyframes flotar {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-35px);
   }
@@ -209,6 +228,7 @@ body {
   0% {
     filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.4)) brightness(1);
   }
+
   100% {
     filter: drop-shadow(0 18px 40px rgba(62, 157, 237, 0.5)) brightness(1.2);
   }
@@ -220,9 +240,20 @@ body {
 }
 
 @keyframes pop-personaje {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(0.6); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* Animaciones de Scroll (Fade Up) */
@@ -270,7 +301,7 @@ body {
   background-color: var(--beige);
   color: var(--marron-oscuro);
   width: 100%;
-  max-width: 320px;
+  max-width: 340px;
   padding: 1.2rem;
   border-radius: 8px;
   text-align: left;
@@ -282,7 +313,7 @@ body {
 /* Imagen de placeholder */
 .proyectos-card-img {
   width: 100%;
-  height: 160px;
+  height: 190px;
   overflow: hidden;
   /* evita que se salga de su contenedor */
   border-radius: 6px;
