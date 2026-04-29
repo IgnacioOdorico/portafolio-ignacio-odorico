@@ -196,12 +196,10 @@ body {
 
 /* 🔹 Animaciones */
 @keyframes flotar {
-
   0%,
   100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-35px);
   }
@@ -211,12 +209,34 @@ body {
   0% {
     filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.4)) brightness(1);
   }
-
   100% {
     filter: drop-shadow(0 18px 40px rgba(62, 157, 237, 0.5)) brightness(1.2);
   }
 }
 
+/* Animación pop para cambio de personaje */
+.personaje-cambiando {
+  animation: pop-personaje 0.3s ease-in-out forwards !important;
+}
+
+@keyframes pop-personaje {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Animaciones de Scroll (Fade Up) */
+.hidden-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.show-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
 /* ======= Sección Proyectos ======= */

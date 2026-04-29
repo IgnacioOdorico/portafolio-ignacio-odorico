@@ -122,6 +122,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================
   // 🌈 FUNCIÓN APLICAR TEMA + PERSONAJE
   // ==========================
+  // Precargar imágenes para evitar lag en el cambio
+  Object.values(CHARACTER_IMAGES).forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+
   function applyTheme(themeName) {
     const vars = THEMES[themeName];
     if (vars) {
@@ -129,18 +135,20 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("selectedThemeName", themeName);
     }
 
-    // 🔄 Cambiar muñequito
-    if (character && CHARACTER_IMAGES[themeName]) {
-      const oldSrc = character.src;
-      character.style.transition = "opacity 0.2s ease"; // más rápido
-      character.style.opacity = "0";
-
+    // 🔄 Cambiar muñequito con animación fluida ("pop")
+    if (character && CHARACTER_IMAGES[themeName] && !character.src.includes(CHARACTER_IMAGES[themeName])) {
+      character.classList.add("personaje-cambiando");
+      
+      // Esperar a que la animación esté en su punto más pequeño para cambiar el source
       setTimeout(() => {
         character.src = CHARACTER_IMAGES[themeName];
-        character.style.opacity = "1";
-      }, 200);
-    }
+      }, 150);
 
+      // Quitar la clase cuando termine la animación
+      setTimeout(() => {
+        character.classList.remove("personaje-cambiando");
+      }, 300);
+    }
   }
 
   // ==========================
@@ -213,22 +221,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // ✨ EFECTOS Y ANIMACIONES
   // ==========================
 
-  // --- 1. Fade-in secciones una a una ---
-  const secciones = document.querySelectorAll(".hero, .sobre-mi, .proyectos, .tecnologias, .contactos");
-  secciones.forEach(sec => sec.classList.add("oculto"));
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add("visible");
-          obs.unobserve(entry.target);
-        }, index * 400); // retrasa cada aparición 0.4s
-      }
+  // --- 1. Scroll Animations (Fade-Up Escalonado Automático) ---
+  const observerScroll = new IntersectionObserver((entries, obs) => {
+    const intersectan = entries.filter(e => e.isIntersecting);
+    intersectan.forEach((entry, i) => {
+      setTimeout(() => {
+        entry.target.classList.add("show-scroll");
+      }, i * 150); // Efecto escalonado dinámico
+      obs.unobserve(entry.target);
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
 
-  secciones.forEach(sec => observer.observe(sec));
+  document.querySelectorAll(".hidden-scroll").forEach(el => observerScroll.observe(el));
 
   // --- 2. Animación Hero ---
   const perfil = document.querySelector(".perfil-img");
@@ -245,27 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   }
 
-  // --- 3. Cascada en proyectos ---
-  const proyectosSection = document.querySelector(".proyectos");
-  const proyectos = document.querySelectorAll(".proyectos-card");
-  proyectos.forEach(card => {
-    card.style.opacity = "0";
-    card.style.transform = "translateY(40px)";
-  });
-
-  const observerProyectos = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        proyectos.forEach((card, i) => {
-          setTimeout(() => {
-            card.animate([{ opacity: 0, transform: "translateY(40px)" }, { opacity: 1, transform: "translateY(0)" }], { duration: 700, fill: "forwards", easing: "ease-out" });
-          }, 200 * i);
-        });
-      }
-    });
-  }, { threshold: 0.2 });
-
-  if (proyectosSection) observerProyectos.observe(proyectosSection);
+  // (Cascada en proyectos eliminada, ahora manejada por .hidden-scroll genérico)
 
   // --- 4. Parallax Hero ---
   window.addEventListener("scroll", () => {
