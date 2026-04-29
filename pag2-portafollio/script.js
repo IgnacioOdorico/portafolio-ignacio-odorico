@@ -328,26 +328,47 @@ document.addEventListener("DOMContentLoaded", () => {
     let speed = 1.2; // Velocidad de caminata
 
     // 1. Animación del Sprite
-    setInterval(() => {
+    let isPaused = false;
+
+    function updateSprite() {
       currentFrame = (currentFrame + 1) % 5;
       mascotaImg.src = direction === 1 ? framesRight[currentFrame] : framesLeft[currentFrame];
-    }, 120);
-
-    // 2. Animación de Movimiento
-    function walkMascot() {
-      positionX += speed * direction;
       
-      const navWidth = document.querySelector('.navegacion').offsetWidth;
+      let nextDelay = 120;
       
-      // Rebote en los bordes
-      if (positionX > navWidth + 50) {
-        direction = -1; // dar la vuelta hacia izquierda
-      } 
-      else if (positionX < -50) {
-        direction = 1; // dar la vuelta hacia derecha
+      // Si vuelve a la imagen 1 (índice 0), hacemos una pausa más larga
+      if (currentFrame === 0) {
+        nextDelay = 500; // Pausa total de medio segundo en la pose inicial
+        isPaused = true;
+        
+        // Reanudar el movimiento justo antes de que cambie el frame para dar inercia
+        setTimeout(() => {
+          isPaused = false;
+        }, nextDelay - 20); 
       }
       
-      mascotaContainer.style.transform = `translateX(${positionX}px)`;
+      setTimeout(updateSprite, nextDelay);
+    }
+    
+    updateSprite(); // Iniciar animación de frames
+
+    // 2. Animación de Movimiento (60 FPS)
+    function walkMascot() {
+      if (!isPaused) {
+        positionX += speed * direction;
+        
+        const navWidth = document.querySelector('.navegacion').offsetWidth;
+        
+        // Rebote en los bordes
+        if (positionX > navWidth + 50) {
+          direction = -1; // dar la vuelta hacia izquierda
+        } 
+        else if (positionX < -50) {
+          direction = 1; // dar la vuelta hacia derecha
+        }
+        
+        mascotaContainer.style.transform = `translateX(${positionX}px)`;
+      }
       requestAnimationFrame(walkMascot);
     }
     

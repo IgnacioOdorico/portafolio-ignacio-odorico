@@ -32,20 +32,25 @@ body {
   background: var(--bg-marron-oscuro);
   padding: 10px 0;
   text-align: right;
-  overflow: hidden; /* Evita que la mascota agrande la pantalla al salir */
+  overflow: hidden;
+  /* Evita que la mascota agrande la pantalla al salir */
 }
 
 /* 🔸 Mascota del Navbar */
 #navbar-mascota {
   position: absolute;
-  bottom: 0px; 
+  bottom: -4px;
+  /* Lo ajustamos de vuelta para que toque el borde */
   left: -100px;
-  z-index: 1; /* Por detrás del UL que tiene z-index 10 */
+  z-index: 1;
+  /* Por detrás del UL que tiene z-index 10 */
   pointer-events: none;
 }
 
 #mascota-img {
-  height: 45px; 
+  height: 48px;
+  max-width: none;
+  /* Esto era lo que impedía que crezca! */
   object-fit: contain;
 }
 
