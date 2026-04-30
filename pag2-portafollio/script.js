@@ -375,4 +375,79 @@ document.addEventListener("DOMContentLoaded", () => {
     walkMascot();
   }
 
+  // ==========================
+  // 🐻 SNORLAX ANIMATION
+  // ==========================
+  const snorlaxImg = document.getElementById('snorlax-img');
+  
+  if (snorlaxImg) {
+    // Generar la secuencia de frames según las instrucciones
+    const snorlaxSequence = [];
+    
+    // 1. Repetir 4 veces del 1 al 10
+    for (let i = 0; i < 4; i++) {
+      for (let j = 1; j <= 10; j++) {
+        snorlaxSequence.push(j);
+      }
+    }
+    
+    // 2. Imagen 11
+    snorlaxSequence.push(11);
+    
+    // 3. Del 12 al 17
+    for (let j = 12; j <= 17; j++) {
+      snorlaxSequence.push(j);
+    }
+    
+    // 4. Repetir 2 veces del 18 al 23
+    for (let i = 0; i < 2; i++) {
+      for (let j = 18; j <= 23; j++) {
+        snorlaxSequence.push(j);
+      }
+    }
+    
+    // 5. Imagen 24
+    snorlaxSequence.push(24);
+    
+    // 6. Repetir 1 vez del 25 al 28 (se asume ejecutar y repetir 1 vez = 2 veces)
+    for (let i = 0; i < 2; i++) {
+      for (let j = 25; j <= 28; j++) {
+        snorlaxSequence.push(j);
+      }
+    }
+    
+    // 7. Del 29 al 31
+    for (let j = 29; j <= 31; j++) {
+      snorlaxSequence.push(j);
+    }
+    
+    // Precargar imágenes para que sea fluido
+    const snorlaxImages = {};
+    for (let i = 1; i <= 31; i++) {
+      const img = new Image();
+      img.src = `img/snorlax saluda/${i}.png`;
+      snorlaxImages[i] = img.src;
+    }
+
+    let currentSnorlaxFrame = 0;
+
+    function updateSnorlax() {
+      const frameIndex = snorlaxSequence[currentSnorlaxFrame];
+      snorlaxImg.src = snorlaxImages[frameIndex];
+      
+      let nextDelay = 120; // Velocidad base
+      
+      // Demorar un poco mas de tiempo en la img 11, minima pausa
+      if (frameIndex === 11) {
+        nextDelay = 500; // pausa
+      }
+      
+      currentSnorlaxFrame = (currentSnorlaxFrame + 1) % snorlaxSequence.length;
+      
+      setTimeout(updateSnorlax, nextDelay);
+    }
+    
+    updateSnorlax();
+  }
+
 });

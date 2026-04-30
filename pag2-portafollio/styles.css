@@ -1126,3 +1126,21 @@ body,
     box-shadow 2s ease,
     filter 2s ease;
 }
+
+/* ==========================
+   🐻 SNORLAX ANIMATION
+   ========================== */
+.snorlax-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
+  width: 100%;
+}
+
+#snorlax-img {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4));
+}
