@@ -34,7 +34,9 @@ body {
   background: var(--bg-marron-oscuro);
   padding: 10px 0;
   text-align: right;
-  /* Eliminamos overflow: hidden para que no corte a Yoshi en móviles */
+  /* overflow-x: clip recorta solo en horizontal: Yoshi puede salir por los bordes
+     sin ensanchar la página, y no se corta en vertical ni rompe el sticky */
+  overflow-x: clip;
 }
 
 /* 🔸 Mascota del Navbar */
