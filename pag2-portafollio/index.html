@@ -106,17 +106,55 @@
             src="img/img-iconos/github-icono-2.png" alt="github icono">Ir a GitHub</a>
       </div>
 
-      <div class="proyectos-card hidden-scroll">
-        <div class="proyectos-card-img">
-          <img src="img/coming-soon-7848149_640.webp" alt="imagen proyecto">
+      <div class="proyectos-card hidden-scroll" data-gallery>
+        <button type="button" class="proyectos-card-img galeria-trigger" data-index="0"
+          aria-label="Abrir galería de capturas de Candela Cartoons">
+          <img src="img/de proyectos/candela/01-inicio.webp" alt="Pantalla de inicio de Candela Cartoons">
+          <span class="galeria-overlay">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z M4 15l4-4 4 4 3-3 5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            Ver capturas
+          </span>
+          <span class="galeria-count">5 capturas</span>
+        </button>
+        <div class="galeria-thumbs">
+          <button type="button" data-index="0" aria-label="Captura 1: Inicio">
+            <img src="img/de proyectos/candela/01-inicio.webp" alt="Inicio" data-caption="Inicio: serie destacada y Top 10 semanal dentro de la carcasa del televisor CRT" loading="lazy">
+          </button>
+          <button type="button" data-index="1" aria-label="Captura 2: Canales">
+            <img src="img/de proyectos/candela/02-canales.webp" alt="Canales" data-caption="Explorar canales: catálogo de series organizado por canal" loading="lazy">
+          </button>
+          <button type="button" data-index="2" aria-label="Captura 3: Detalle de serie">
+            <img src="img/de proyectos/candela/03-detalle-serie.webp" alt="Detalle de serie" data-caption="Ficha de la serie con temporadas y episodios" loading="lazy">
+          </button>
+          <button type="button" data-index="3" aria-label="Captura 4: Reproductor">
+            <img src="img/de proyectos/candela/04-reproductor.webp" alt="Reproductor" data-caption="Reproductor multi-proveedor con selector de fuente y episodio anterior/siguiente" loading="lazy">
+          </button>
+          <button type="button" data-index="4" aria-label="Captura 5: Pantalla completa">
+            <img src="img/de proyectos/candela/05-pantalla-completa.webp" alt="Pantalla completa" data-caption="Reproducción en pantalla completa servida por el proxy HLS propio" loading="lazy">
+          </button>
         </div>
-        <h3>Title</h3>
+        <h3>Candela Cartoons <span class="badge-privado">Repo privado</span></h3>
         <p>
-          Body text for whatever you'd like to say. Add main takeaway points,
-          quotes, anecdotes, or even a very very short story.
+          Plataforma web con estética de televisor CRT retro para ver dibujos animados clásicos.
+          Agrega episodios de múltiples proveedores de video, resuelve la URL real de cada stream y la sirve
+          a través de un proxy HLS propio: un único catálogo y un único reproductor.
+          Incluye cuentas, favoritos, progreso, Top 10 y panel de administración con sincronización automática.
         </p>
-        <a href="#" class="proyectos-btn"><img src="img/img-iconos/github-icono-2.png" alt="github icono">Ir a
-          GitHub</a>
+        <div class="proyectos-tags">
+          <span class="tag">React</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Express</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">Puppeteer</span>
+          <span class="tag">Docker</span>
+        </div>
+        <button type="button" class="proyectos-btn proyectos-btn-video"
+          data-video="img/de proyectos/candela/candela-demo.mp4"
+          data-poster="img/de proyectos/candela/poster.webp"
+          data-title="Candela Cartoons · Demo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+          Ver video del proyecto
+        </button>
       </div>
 
       <div class="proyectos-card hidden-scroll">
@@ -387,6 +425,37 @@
   <section class="snorlax-container" id="snorlax-container">
     <img id="snorlax-img" src="img/snorlax saluda/1.png" alt="Snorlax saludando">
   </section>
+
+  <!-- 🔹 Lightbox: galería de capturas y video de proyectos -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de proyecto" hidden>
+    <div class="lightbox-backdrop" data-close></div>
+    <div class="lightbox-panel">
+      <header class="lightbox-header">
+        <span class="lightbox-title" id="lightbox-title"></span>
+        <span class="lightbox-counter" id="lightbox-counter"></span>
+        <button type="button" class="lightbox-close" data-close aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+
+      <div class="lightbox-stage" id="lightbox-gallery">
+        <button type="button" class="lightbox-nav prev" id="lightbox-prev" aria-label="Captura anterior">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lightbox-track" id="lightbox-track"></div>
+        <button type="button" class="lightbox-nav next" id="lightbox-next" aria-label="Captura siguiente">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <div class="lightbox-stage lightbox-video-stage" id="lightbox-video-stage">
+        <video id="lightbox-video" controls playsinline preload="none"></video>
+      </div>
+
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+      <div class="lightbox-thumbs" id="lightbox-thumbs"></div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

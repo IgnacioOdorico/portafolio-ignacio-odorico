@@ -450,4 +450,152 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSnorlax();
   }
 
+  // ==========================
+  // 🖼️ LIGHTBOX: GALERÍA + VIDEO DE PROYECTOS
+  // ==========================
+  const lightbox = document.getElementById("lightbox");
+  if (lightbox) {
+    const lbTitle = document.getElementById("lightbox-title");
+    const lbCounter = document.getElementById("lightbox-counter");
+    const lbTrack = document.getElementById("lightbox-track");
+    const lbCaption = document.getElementById("lightbox-caption");
+    const lbThumbs = document.getElementById("lightbox-thumbs");
+    const lbPrev = document.getElementById("lightbox-prev");
+    const lbNext = document.getElementById("lightbox-next");
+    const lbVideo = document.getElementById("lightbox-video");
+
+    let slides = [];
+    let current = 0;
+    let lastFocus = null;
+    let musicWasPlaying = false;
+
+    function open(mode, title) {
+      lastFocus = document.activeElement;
+      lightbox.dataset.mode = mode;
+      lbTitle.textContent = title;
+      lightbox.classList.remove("closing");
+      lightbox.hidden = false;
+      document.body.classList.add("lightbox-open");
+      lightbox.querySelector(".lightbox-close").focus();
+    }
+
+    function close() {
+      if (lightbox.hidden || lightbox.classList.contains("closing")) return;
+      lightbox.classList.add("closing");
+      if (!lbVideo.paused) lbVideo.pause();
+      setTimeout(() => {
+        lightbox.hidden = true;
+        lightbox.classList.remove("closing");
+        document.body.classList.remove("lightbox-open");
+        lbVideo.removeAttribute("src");
+        lbVideo.load();
+        if (musicWasPlaying) music.play().catch(() => {});
+        musicWasPlaying = false;
+        lastFocus?.focus();
+      }, 250);
+    }
+
+    function goTo(index) {
+      current = Math.max(0, Math.min(index, slides.length - 1));
+      lbTrack.style.transform = `translateX(-${current * 100}%)`;
+      lbCounter.textContent = `${current + 1} / ${slides.length}`;
+      lbCaption.textContent = slides[current].caption;
+      lbPrev.disabled = current === 0;
+      lbNext.disabled = current === slides.length - 1;
+      lbThumbs.querySelectorAll("button").forEach((b, i) => {
+        b.classList.toggle("active", i === current);
+        b.setAttribute("aria-current", i === current);
+      });
+    }
+
+    function openGallery(card, index) {
+      slides = [...card.querySelectorAll(".galeria-thumbs img")].map(img => ({
+        src: img.getAttribute("src"),
+        alt: img.alt,
+        caption: img.dataset.caption || img.alt,
+      }));
+      lbTrack.innerHTML = slides.map(s => `<img src="${s.src}" alt="${s.alt}" draggable="false">`).join("");
+      lbThumbs.innerHTML = slides
+        .map((s, i) => `<button type="button" data-index="${i}" aria-label="Ver captura ${i + 1}"><img src="${s.src}" alt=""></button>`)
+        .join("");
+      lbTrack.classList.add("dragging");
+      goTo(index);
+      lbTrack.offsetWidth; // aplica la posición inicial sin animar
+      lbTrack.classList.remove("dragging");
+      open("gallery", card.querySelector("h3").firstChild.textContent.trim());
+    }
+
+    function openVideo(btn) {
+      lbCounter.textContent = "";
+      lbVideo.poster = btn.dataset.poster || "";
+      lbVideo.src = btn.dataset.video;
+      open("video", btn.dataset.title || "Video del proyecto");
+      musicWasPlaying = !music.paused;
+      music.pause();
+      lbVideo.play().catch(() => {});
+    }
+
+    // Disparadores en las cards
+    document.querySelectorAll("[data-gallery]").forEach(card => {
+      card.querySelectorAll(".galeria-trigger, .galeria-thumbs button").forEach(btn => {
+        btn.addEventListener("click", () => openGallery(card, Number(btn.dataset.index)));
+      });
+    });
+    document.querySelectorAll(".proyectos-btn-video").forEach(btn => {
+      btn.addEventListener("click", () => openVideo(btn));
+    });
+
+    // Controles del lightbox
+    lbPrev.addEventListener("click", () => goTo(current - 1));
+    lbNext.addEventListener("click", () => goTo(current + 1));
+    lbThumbs.addEventListener("click", e => {
+      const b = e.target.closest("button");
+      if (b) goTo(Number(b.dataset.index));
+    });
+    lightbox.querySelectorAll("[data-close]").forEach(el => el.addEventListener("click", close));
+
+    document.addEventListener("keydown", e => {
+      if (lightbox.hidden) return;
+      if (e.key === "Escape") close();
+      if (lightbox.dataset.mode !== "gallery") return;
+      if (e.key === "ArrowLeft") goTo(current - 1);
+      if (e.key === "ArrowRight") goTo(current + 1);
+    });
+
+    // Swipe / arrastre con mouse o dedo
+    let startX = null;
+    let deltaX = 0;
+    lbTrack.addEventListener("pointerdown", e => {
+      startX = e.clientX;
+      deltaX = 0;
+      lbTrack.classList.add("dragging");
+      lbTrack.setPointerCapture(e.pointerId);
+    });
+    lbTrack.addEventListener("pointermove", e => {
+      if (startX === null) return;
+      deltaX = e.clientX - startX;
+      const offset = (deltaX / lbTrack.offsetWidth) * 100;
+      lbTrack.style.transform = `translateX(calc(-${current * 100}% + ${offset}%))`;
+    });
+    const endDrag = () => {
+      if (startX === null) return;
+      lbTrack.classList.remove("dragging");
+      const threshold = lbTrack.offsetWidth * 0.15;
+      if (deltaX < -threshold) goTo(current + 1);
+      else if (deltaX > threshold) goTo(current - 1);
+      else goTo(current);
+      startX = null;
+    };
+    lbTrack.addEventListener("pointerup", endDrag);
+    lbTrack.addEventListener("pointercancel", endDrag);
+
+    // Cursor personalizado en los botones creados dinámicamente
+    lightbox.addEventListener("mouseover", e => {
+      if (e.target.closest("button")) cursor.classList.add("hover");
+    });
+    lightbox.addEventListener("mouseout", e => {
+      if (e.target.closest("button")) cursor.classList.remove("hover");
+    });
+  }
+
 });
