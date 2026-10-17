@@ -1327,6 +1327,25 @@ body.lightbox-open {
   }
 
 
+  /* 🔹 Tecnologías: el título y las tarjetas no deben ensanchar la página */
+  .tecnologias h2 {
+    font-size: clamp(1.6rem, 9vw, 3rem);
+  }
+
+  .contenedor-tec>*,
+  .tarjetas-tec>* {
+    min-width: 0;
+  }
+
+  .tarjetas-tec {
+    padding: clamp(16px, 5vw, 30px);
+    border-radius: clamp(20px, 6vw, 40px);
+  }
+
+  .img-derecha video {
+    max-width: 100%;
+  }
+
   /* 🔹 Contactos */
   .contactos {
     width: 95%;
