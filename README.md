@@ -51,8 +51,9 @@ Portafollio/
     │   ├── img-logos/           # Logos de tecnologías (SVG)
     │   ├── img-iconos/          # Íconos de navegación
     │   ├── personajes/          # Personaje animado flotante
-    │   ├── de proyectos/        # Screenshots de proyectos
-    │   │   └── home.jpeg        # Screenshot de Planova
+    │   ├── de proyectos/        # Capturas y videos demo de proyectos
+    │   │   ├── planova/         # Galería y video de Planova
+    │   │   └── candela/         # Galería y video de Candela Cartoons
     │   └── ...                  # Imágenes de perfil y secciones
 ```
 
