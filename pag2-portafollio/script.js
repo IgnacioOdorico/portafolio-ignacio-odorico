@@ -598,4 +598,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // "Ver más" en descripciones largas de proyectos
+  document.querySelectorAll(".ver-mas").forEach(btn => {
+    const desc = document.getElementById(btn.getAttribute("aria-controls"));
+    const card = btn.closest(".proyectos-card");
+    if (!desc || !card) return;
+    const siblings = [...card.parentElement.children].filter(c => c !== card);
+
+    btn.addEventListener("click", () => {
+      const expand = !desc.classList.contains("expandida");
+      if (expand) {
+        // Fija la altura de las otras cards para que no se estiren con esta
+        siblings.forEach(c => {
+          c.style.height = `${c.offsetHeight}px`;
+          c.style.alignSelf = "start";
+        });
+        card.style.alignSelf = "start";
+      } else {
+        siblings.forEach(c => {
+          c.style.height = "";
+          c.style.alignSelf = "";
+        });
+        card.style.alignSelf = "";
+      }
+      desc.classList.toggle("expandida", expand);
+      btn.setAttribute("aria-expanded", String(expand));
+      btn.textContent = expand ? "Ver menos" : "Ver más";
+    });
+  });
+
 });

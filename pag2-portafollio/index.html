@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portafolio - Ignacio Odorico</title>
-  <link rel="stylesheet" href="styles.css?v=20261019b" />
+  <link rel="stylesheet" href="styles.css?v=20261019c" />
 </head>
 
 <body>
@@ -232,7 +232,7 @@
           </button>
         </div>
         <h3>FoodStore</h3>
-        <p>
+        <p class="descripcion-recortable" id="descripcion-foodstore">
           Plataforma Full Stack para gestionar un local de comida de punta a punta: una tienda donde los clientes
           arman su pedido y pagan con MercadoPago, y un panel donde el negocio gestiona pedidos, productos y stock.
           Los estados de los pedidos se actualizan en tiempo real con WebSockets y pasan por una máquina de estados
@@ -241,6 +241,7 @@
           stock. API REST en FastAPI con arquitectura en capas, JWT con refresh token rotativo y casi 100 tests con
           Pytest.
         </p>
+        <button type="button" class="ver-mas" aria-expanded="false" aria-controls="descripcion-foodstore">Ver más</button>
         <div class="proyectos-tags">
           <span class="tag">FastAPI</span>
           <span class="tag">PostgreSQL</span>
@@ -251,7 +252,6 @@
           <span class="tag">Cloudinary</span>
           <span class="tag">Docker</span>
           <span class="tag">TanStack Query</span>
-          <span class="tag">Zustand</span>
         </div>
         <div class="proyectos-acciones">
           <button type="button" class="proyectos-btn proyectos-btn-video"
@@ -553,7 +553,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=20261017c"></script>
+  <script src="script.js?v=20261019c"></script>
 </body>
 
 </html>

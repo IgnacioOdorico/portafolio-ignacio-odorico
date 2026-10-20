@@ -370,6 +370,40 @@ body {
 }
 
 /* ======= Tags de tecnologías en card ======= */
+/* Long descriptions: clamp to 10 lines with a "Ver más" toggle */
+.proyectos-card p.descripcion-recortable {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 10;
+  line-clamp: 10;
+  overflow: hidden;
+  margin-bottom: 0.3rem;
+}
+
+.proyectos-card p.descripcion-recortable.expandida {
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+}
+
+.ver-mas {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 0.8rem;
+  color: var(--celeste);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ver-mas:hover,
+.ver-mas:focus-visible {
+  text-decoration: underline;
+}
+
 .proyectos-tags {
   display: flex;
   flex-wrap: wrap;
