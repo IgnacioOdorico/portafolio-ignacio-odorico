@@ -454,6 +454,12 @@ button.proyectos-card-img {
   margin-top: 0.5rem;
 }
 
+/* Wrap into rows of 5 when a gallery has more than 5 screenshots */
+.galeria-thumbs:has(> :nth-child(6)) {
+  grid-auto-flow: row;
+  grid-template-columns: repeat(5, 1fr);
+}
+
 .galeria-thumbs button {
   aspect-ratio: 16 / 10;
   border: 2px solid transparent;
