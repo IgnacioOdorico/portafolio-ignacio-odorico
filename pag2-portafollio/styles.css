@@ -454,10 +454,25 @@ button.proyectos-card-img {
   margin-top: 0.5rem;
 }
 
-/* Wrap into rows of 5 when a gallery has more than 5 screenshots */
-.galeria-thumbs:has(> :nth-child(6)) {
-  grid-auto-flow: row;
-  grid-template-columns: repeat(5, 1fr);
+/* Keep a single row: show up to 6 thumbs, the last one with a "+N" counter */
+.galeria-thumbs button:nth-child(n + 7) {
+  display: none;
+}
+
+.galeria-thumbs button[data-more] {
+  position: relative;
+}
+
+.galeria-thumbs button[data-more]::after {
+  content: attr(data-more);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.95rem;
 }
 
 .galeria-thumbs button {
