@@ -266,17 +266,65 @@
         </div>
       </div>
 
-      <div class="proyectos-card hidden-scroll">
-        <div class="proyectos-card-img">
-          <img src="img/coming-soon-7848149_640.webp" alt="imagen proyecto">
+      <div class="proyectos-card hidden-scroll" data-gallery>
+        <button type="button" class="proyectos-card-img galeria-trigger" data-index="0"
+          aria-label="Abrir galería de capturas de Atendo">
+          <img src="img/de proyectos/atendo/01-demo.webp" alt="Landing page de Atendo con métricas en vivo">
+          <span class="galeria-overlay">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z M4 15l4-4 4 4 3-3 5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            Ver capturas
+          </span>
+          <span class="galeria-count">5 capturas</span>
+        </button>
+        <div class="galeria-thumbs">
+          <button type="button" data-index="0" aria-label="Captura 1: Landing">
+            <img src="img/de proyectos/atendo/01-demo.webp" alt="Landing" data-caption="Landing: el post-venta de tu tienda, resuelto solo, con contadores leídos en vivo de esta instalación." loading="lazy">
+          </button>
+          <button type="button" data-index="1" aria-label="Captura 2: El problema">
+            <img src="img/de proyectos/atendo/02-demo.webp" alt="El problema" data-caption="Sección &quot;El problema&quot;: 49 s por pedido hecho a mano, consultas sin respuesta y errores de stock." loading="lazy">
+          </button>
+          <button type="button" data-index="2" aria-label="Captura 3: Chat del asistente">
+            <img src="img/de proyectos/atendo/03-demo.webp" alt="Chat del asistente" data-caption="Chat de prueba: el asistente responde con el catálogo y las políticas reales, y deriva los reclamos como caso abierto." loading="lazy">
+          </button>
+          <button type="button" data-index="3" aria-label="Captura 4: Panel de tickets">
+            <img src="img/de proyectos/atendo/04-demo.webp" alt="Panel de tickets" data-caption="Panel de administración: tickets con canal, prioridad y estado, más dashboard, pedidos, catálogo y métricas." loading="lazy">
+          </button>
+          <button type="button" data-index="4" aria-label="Captura 5: Resultados">
+            <img src="img/de proyectos/atendo/05-demo.webp" alt="Resultados" data-caption="Resultados del asistente: 1,47 s de respuesta promedio y 92,7 % de exactitud al clasificar la consulta (IC 95 %: 87,3-95,9 %)." loading="lazy">
+          </button>
         </div>
-        <h3>Title</h3>
-        <p>
-          Body text for whatever you'd like to say. Add main takeaway points,
-          quotes, anecdotes, or even a very very short story.
+        <h3>Atendo <span class="badge-tesis">Trabajo Integrador · UTN</span></h3>
+        <p class="descripcion-recortable" id="descripcion-atendo">
+          Sistema Full Stack que automatiza el post-venta de una PyME de e-commerce: cada pedido que entra se
+          procesa, se verifica y descuenta el stock, se confirma la venta y se avisa al cliente; y cada consulta
+          la atiende un asistente de IA por WhatsApp, Telegram o correo. n8n orquesta los flujos, GPT-4o-mini
+          clasifica la intención (consulta, estado de pedido, reclamo) y redacta la respuesta, FastAPI expone la
+          API REST sobre PostgreSQL y el panel en React muestra pedidos, tickets, catálogo, métricas y el estado
+          de cada canal. Medido en laboratorio: 49,13 s por pedido a mano contra 0,063 s automatizado en un
+          pipeline local (780x), y 92,7 % de exactitud al clasificar consultas. Es un prototipo académico:
+          funciona para el volumen de una PyME, no para un pico de tráfico.
         </p>
-        <a href="#" class="proyectos-btn"><img src="img/img-iconos/github-icono-2.png" alt="github icono">Ir a
-          GitHub</a>
+        <button type="button" class="ver-mas" aria-expanded="false" aria-controls="descripcion-atendo">Ver más</button>
+        <div class="proyectos-tags">
+          <span class="tag">n8n</span>
+          <span class="tag">GPT-4o-mini</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">React</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Grafana</span>
+        </div>
+        <div class="proyectos-acciones">
+          <button type="button" class="proyectos-btn proyectos-btn-multi-video"
+            aria-label="Ver los 3 videos del proyecto Atendo"
+            data-title="Atendo · Videos del proyecto">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+            <span>Ver los 3 videos</span>
+            <span class="proyectos-btn-meta">2:55 · 6:00 · 11:25</span>
+          </button>
+          <a href="https://github.com/IgnacioOdorico/Automatizacion-de-Atencion-al-Cliente-en-E-commerce-e-Inteligencia-Artificial" target="_blank" class="proyectos-btn"><img
+              src="img/img-iconos/github-icono-2.png" alt="github icono">Ir a GitHub</a>
+        </div>
       </div>
 
       <div class="proyectos-card hidden-scroll">
@@ -521,6 +569,65 @@
   <section class="snorlax-container" id="snorlax-container">
     <img id="snorlax-img" src="img/snorlax saluda/1.png" alt="Snorlax saludando">
   </section>
+
+  <!-- 🔹 Modal selector de videos (Atendo) -->
+  <div class="video-picker-modal" id="video-picker-modal" role="dialog" aria-modal="true" aria-labelledby="video-picker-title" hidden>
+    <div class="video-picker-backdrop" id="video-picker-backdrop"></div>
+    <div class="video-picker-panel">
+      <header class="video-picker-header">
+        <span class="video-picker-title" id="video-picker-title">Videos del proyecto</span>
+        <button type="button" class="video-picker-close" id="video-picker-close" aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+      <p class="video-picker-subtitle">Tres videos, del más corto al más largo.</p>
+      <div class="video-picker-options">
+        <button type="button" class="video-picker-option"
+          data-video="img/de proyectos/atendo/video2.mp4"
+          data-poster="img/de proyectos/atendo/video2-poster.webp"
+          data-title="Atendo · Resumen del proyecto">
+          <span class="video-picker-thumb">
+            <img src="img/de proyectos/atendo/video2-poster.webp" alt="" loading="lazy">
+            <svg class="video-picker-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+          </span>
+          <span class="video-picker-info">
+            <span class="video-picker-kicker">Resumen <strong class="video-picker-duration">2:55</strong></span>
+            <strong>Qué es Atendo y qué problema resuelve</strong>
+            <small>Explicador animado: el post-venta manual que no escala y cómo lo automatiza el sistema.</small>
+          </span>
+        </button>
+        <button type="button" class="video-picker-option"
+          data-video="img/de proyectos/atendo/video3.mp4"
+          data-poster="img/de proyectos/atendo/video3-poster.webp"
+          data-title="Atendo · Cómo funciona">
+          <span class="video-picker-thumb">
+            <img src="img/de proyectos/atendo/video3-poster.webp" alt="" loading="lazy">
+            <svg class="video-picker-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+          </span>
+          <span class="video-picker-info">
+            <span class="video-picker-kicker">Técnico <strong class="video-picker-duration">6:00</strong></span>
+            <strong>Cómo funciona por dentro</strong>
+            <small>Explicador animado: workflows de n8n, PostgreSQL como memoria compartida, pedidos, tickets y métricas.</small>
+          </span>
+        </button>
+        <button type="button" class="video-picker-option"
+          data-video="img/de proyectos/atendo/video1.mp4"
+          data-poster="img/de proyectos/atendo/video1-poster.webp"
+          data-title="Atendo · Demo completa">
+          <span class="video-picker-thumb">
+            <img src="img/de proyectos/atendo/video1-poster.webp" alt="" loading="lazy">
+            <svg class="video-picker-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+          </span>
+          <span class="video-picker-info">
+            <span class="video-picker-kicker">Demo <strong class="video-picker-duration">11:25</strong></span>
+            <strong>Recorrido completo en pantalla</strong>
+            <small>Grabación del producto real: landing, pedido en vivo, chat del asistente y panel de administración.</small>
+          </span>
+        </button>
+      </div>
+      <p class="video-picker-note">Los dos explicadores son animados; el recorrido de 11:25 es la pantalla del sistema funcionando.</p>
+    </div>
+  </div>
 
   <!-- 🔹 Lightbox: galería de capturas y video de proyectos -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de proyecto" hidden>

@@ -525,11 +525,12 @@ document.addEventListener("DOMContentLoaded", () => {
       open("gallery", card.querySelector("h3").firstChild.textContent.trim());
     }
 
-    function openVideo(btn) {
+    function openVideo(btn, returnFocus) {
       lbCounter.textContent = "";
       lbVideo.poster = btn.dataset.poster || "";
       lbVideo.src = btn.dataset.video;
       open("video", btn.dataset.title || "Video del proyecto");
+      lastFocus = returnFocus || lastFocus;
       musicWasPlaying = !music.paused;
       music.pause();
       lbVideo.play().catch(() => {});
@@ -544,6 +545,68 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".proyectos-btn-video").forEach(btn => {
       btn.addEventListener("click", () => openVideo(btn));
     });
+
+    // Selector de videos cuando el proyecto tiene más de uno (Atendo)
+    const videoPicker = document.getElementById("video-picker-modal");
+    if (videoPicker) {
+      const vpBackdrop = document.getElementById("video-picker-backdrop");
+      const vpClose = document.getElementById("video-picker-close");
+      const vpTitle = document.getElementById("video-picker-title");
+      let vpLastFocus = null;
+
+      function openPicker(btn) {
+        vpLastFocus = btn;
+        vpTitle.textContent = btn.dataset.title || "Videos del proyecto";
+        videoPicker.classList.remove("closing");
+        videoPicker.hidden = false;
+        document.body.classList.add("lightbox-open");
+        vpClose.focus();
+      }
+
+      // immediate: no anima el cierre ni devuelve el foco, porque lo toma el lightbox
+      function closePicker(immediate) {
+        if (videoPicker.hidden) return;
+        const finish = () => {
+          videoPicker.hidden = true;
+          videoPicker.classList.remove("closing");
+          document.body.classList.remove("lightbox-open");
+          if (!immediate) vpLastFocus?.focus();
+        };
+        if (immediate) {
+          finish();
+          return;
+        }
+        if (videoPicker.classList.contains("closing")) return;
+        videoPicker.classList.add("closing");
+        setTimeout(finish, 250);
+      }
+
+      document.querySelectorAll(".proyectos-btn-multi-video").forEach(btn => {
+        btn.addEventListener("click", () => openPicker(btn));
+      });
+
+      vpBackdrop.addEventListener("click", () => closePicker(false));
+      vpClose.addEventListener("click", () => closePicker(false));
+
+      document.addEventListener("keydown", e => {
+        if (!videoPicker.hidden && e.key === "Escape") closePicker(false);
+      });
+
+      // Al elegir: cerrar el selector y abrir el video en el lightbox
+      videoPicker.querySelectorAll(".video-picker-option").forEach(opt => {
+        opt.addEventListener("click", () => {
+          closePicker(true);
+          openVideo(opt, vpLastFocus);
+        });
+      });
+
+      videoPicker.addEventListener("mouseover", e => {
+        if (e.target.closest("button")) cursor.classList.add("hover");
+      });
+      videoPicker.addEventListener("mouseout", e => {
+        if (e.target.closest("button")) cursor.classList.remove("hover");
+      });
+    }
 
     // Controles del lightbox
     lbPrev.addEventListener("click", () => goTo(current - 1));
