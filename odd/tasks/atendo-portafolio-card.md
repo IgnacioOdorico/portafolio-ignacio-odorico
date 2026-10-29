@@ -63,4 +63,12 @@ Los 3 videos se mantienen (decisión del usuario). Se reencodearon a 720p H.264 
 - Reproducción verificada en Chrome headless: los 3 abren en el lightbox con `readyState ≥ 1`, duración correcta (176 s / 360 s / 686 s), 1280×720, `currentTime` avanza y 0 errores de consola.
 
 ## Estado
-Completado. Decisión del usuario (2026-10-28): se mantienen los 3 videos, incluidos los dos explicadores animados con watermark de Pictory. El selector los deja identificados como animados, así que no hay riesgo de que un reclutador los lea como demo en vivo. Pendiente: commit + push (no ejecutados sin pedido explícito).
+Completado, publicado y verificado en producción.
+
+- Commits: `88f7713` (card + videos + `.gitignore`) y `26b271c` (bump de versión de `styles.css`/`script.js`).
+- Publicado en `https://ignacioodorico.github.io/portafolio-ignacio-odorico/pag2-portafollio/`.
+- Verificación en vivo (Chrome headless contra la URL real): los 3 videos abren en el lightbox, 1280×720, duración correcta, reproducción avanza, 0 errores de consola, 0 imágenes rotas.
+- Defecto detectado y corregido antes de cerrar: `index.html` referencia `styles.css?v=20261019c` y `script.js?v=20261019c`. Sin bump, los visitantes recurrentes veían el HTML nuevo con el CSS viejo (botón gigante y selector sin estilos). Ahora `?v=20261028a`.
+- Observación menor preexistente (fuera de alcance): no hay `<link rel="icon">` y el navegador pide `/favicon.ico` en la raíz del dominio → 404. No afecta la página.
+
+Decisión del usuario (2026-10-28): se mantienen los 3 videos, incluidos los dos explicadores animados con watermark de Pictory. El selector los deja identificados como animados, así que no hay riesgo de que un reclutador los lea como demo en vivo.
