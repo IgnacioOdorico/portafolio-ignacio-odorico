@@ -53,7 +53,10 @@ Portafollio/
     │   ├── personajes/          # Personaje animado flotante
     │   ├── de proyectos/        # Capturas y videos demo de proyectos
     │   │   ├── planova/         # Galería y video de Planova
-    │   │   └── candela/         # Galería y video de Candela Cartoons
+    │   │   ├── candela/         # Galería y video de Candela Cartoons
+    │   │   ├── foodstore/       # Galería y video de FoodStore
+    │   │   ├── atendo/          # Galería y videos de Atendo
+    │   │   └── active-trace/    # Galería y video de Active Trace
     │   └── ...                  # Imágenes de perfil y secciones
 ```
 

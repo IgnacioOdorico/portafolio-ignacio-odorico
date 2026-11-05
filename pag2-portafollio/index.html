@@ -330,17 +330,79 @@
         </div>
       </div>
 
-      <div class="proyectos-card hidden-scroll">
-        <div class="proyectos-card-img">
-          <img src="img/coming-soon-7848149_640.webp" alt="imagen proyecto">
+      <div class="proyectos-card hidden-scroll" data-gallery>
+        <button type="button" class="proyectos-card-img galeria-trigger" data-index="0"
+          aria-label="Abrir galería de capturas de Active Trace">
+          <img src="img/de proyectos/active-trace/01-inicio-coordinador.webp" alt="Inicio del coordinador en Active Trace">
+          <span class="galeria-overlay">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z M4 15l4-4 4 4 3-3 5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            Ver capturas
+          </span>
+          <span class="galeria-count">8 capturas</span>
+        </button>
+        <div class="galeria-thumbs">
+          <button type="button" data-index="0" aria-label="Captura 1: Inicio del coordinador">
+            <img src="img/de proyectos/active-trace/01-inicio-coordinador.webp" alt="Inicio del coordinador" data-caption="Inicio del coordinador: alumnos en seguimiento, alumnos atrasados por comisión, tareas asignadas y actividad auditada del mes" loading="lazy">
+          </button>
+          <button type="button" data-index="1" aria-label="Captura 2: Alumnos atrasados">
+            <img src="img/de proyectos/active-trace/02-alumnos-atrasados.webp" alt="Alumnos atrasados" data-caption="Alumnos atrasados: detección automática según el umbral de aprobación de cada materia, con progreso, gravedad y acceso directo para comunicarse" loading="lazy">
+          </button>
+          <button type="button" data-index="2" aria-label="Captura 3: Comunicaciones">
+            <img src="img/de proyectos/active-trace/03-comunicaciones.webp" alt="Comunicaciones" data-caption="Comunicaciones: plantillas con variables por alumno, vista previa por destinatario y seguimiento del estado de cada envío" loading="lazy">
+          </button>
+          <button type="button" data-index="3" aria-label="Captura 4: Portal del alumno">
+            <img src="img/de proyectos/active-trace/04-portal-alumno.webp" alt="Portal del alumno" data-caption="Portal del alumno: sus materias, avisos con confirmación de lectura y reserva de turnos de coloquio con cupos" loading="lazy">
+          </button>
+          <button type="button" data-index="4" aria-label="Captura 5: Inicio de finanzas">
+            <img src="img/de proyectos/active-trace/05-finanzas.webp" alt="Inicio de finanzas" data-caption="Inicio de finanzas: total liquidado del período, liquidación por rol y estado de las facturas docentes" loading="lazy">
+          </button>
+          <button type="button" data-index="5" data-more="+2" aria-label="Captura 6: Panel de auditoría (y 2 capturas más)">
+            <img src="img/de proyectos/active-trace/06-auditoria.webp" alt="Panel de auditoría" data-caption="Panel de auditoría: actividad diaria filtrable por fecha, materia y tipo de acción, con el log completo de acciones" loading="lazy">
+          </button>
+          <button type="button" data-index="6" aria-label="Captura 7: Grilla salarial">
+            <img src="img/de proyectos/active-trace/07-grilla-salarial.webp" alt="Grilla salarial" data-caption="Grilla salarial: salario base por rol con vigencia desde/hasta, más los adicionales (plus)" loading="lazy">
+          </button>
+          <button type="button" data-index="7" aria-label="Captura 8: Usuarios del tenant">
+            <img src="img/de proyectos/active-trace/08-usuarios.webp" alt="Usuarios del tenant" data-caption="Usuarios del tenant: alta, edición y desactivación, con los datos de cada institución aislados del resto" loading="lazy">
+          </button>
         </div>
-        <h3>Title</h3>
-        <p>
-          Body text for whatever you'd like to say. Add main takeaway points,
-          quotes, anecdotes, or even a very very short story.
+        <h3>Active Trace</h3>
+        <p class="descripcion-recortable" id="descripcion-active-trace">
+          Plataforma Full Stack multi-tenant de gestión académica que se monta sobre Moodle para resolver todo lo
+          que el aula virtual no cubre: seguimiento de alumnos, comunicaciones, encuentros, coloquios, equipos
+          docentes y liquidación de honorarios. Importa las calificaciones exportadas del campus, detecta
+          automáticamente a los alumnos atrasados según el umbral de cada materia y permite contactarlos con
+          comunicaciones masivas que pasan por aprobación y se procesan en una cola con un worker en segundo plano.
+          Cada uno de los 7 roles (admin, coordinador, profesor, tutor, alumno, nexo y finanzas) tiene su propio
+          inicio y ve solo lo que sus permisos habilitan, con los datos aislados por institución. Seguridad desde el
+          diseño: JWT con refresh token rotativo, 2FA opcional, contraseñas con Argon2, datos sensibles (DNI, CUIL,
+          CBU) cifrados con AES-256 y una auditoría de solo escritura que registra incluso la impersonación de
+          usuarios. API REST en FastAPI con SQLAlchemy async y PostgreSQL, frontend en React + TypeScript, trazas
+          con OpenTelemetry y más de 1.300 tests automatizados.
         </p>
-        <a href="#" class="proyectos-btn"><img src="img/img-iconos/github-icono-2.png" alt="github icono">Ir a
-          GitHub</a>
+        <button type="button" class="ver-mas" aria-expanded="false" aria-controls="descripcion-active-trace">Ver más</button>
+        <div class="proyectos-tags">
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">SQLAlchemy</span>
+          <span class="tag">React</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">TanStack Query</span>
+          <span class="tag">Tailwind</span>
+          <span class="tag">Docker</span>
+          <span class="tag">OpenTelemetry</span>
+        </div>
+        <div class="proyectos-acciones">
+          <button type="button" class="proyectos-btn proyectos-btn-video"
+            data-video="img/de proyectos/active-trace/active-trace-demo.mp4"
+            data-poster="img/de proyectos/active-trace/poster.webp"
+            data-title="Active Trace · Demo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+            Ver video del proyecto
+          </button>
+          <a href="https://github.com/IgnacioOdorico/active-trace" target="_blank" class="proyectos-btn"><img
+              src="img/img-iconos/github-icono-2.png" alt="github icono">Ir a GitHub</a>
+        </div>
       </div>
 
       <div class="proyectos-card hidden-scroll">
