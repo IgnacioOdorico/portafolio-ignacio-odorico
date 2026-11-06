@@ -95,6 +95,8 @@ El CV se edita en `pag2-portafollio/cv/CV_Ignacio_Odorico.html` y se exporta a P
 "/c/Program Files/Google/Chrome/Application/chrome.exe" --headless=new --disable-gpu --no-pdf-header-footer --print-to-pdf="pag2-portafollio/cv/CV_Ignacio_Odorico.pdf" "file:///D:/programacion%20nacho/Portafollio/pag2-portafollio/cv/CV_Ignacio_Odorico.html"
 ```
 
+La versión en inglés para trabajos remotos (`CV_Ignacio_Odorico_EN.html` → `CV_Ignacio_Odorico_EN.pdf`) se exporta con el mismo comando cambiando los dos nombres de archivo.
+
 Después de exportarlo, hay que subir la versión del link en `pag2-portafollio/index.html` (`CV_Ignacio_Odorico.pdf?v=AAAAMMDD`) para que GitHub Pages no sirva el PDF viejo desde la caché.
 
 ---
