@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV - Ignacio Martin Odorico</title>
+  <!--
+    Fuente editable del CV. Para regenerar el PDF (desde la raíz del repo):
+    "C:/Program Files/Google/Chrome/Application/chrome.exe" --headless=new --disable-gpu --no-pdf-header-footer
+      --print-to-pdf="pag2-portafollio/cv/CV_Ignacio_Odorico.pdf"
+      "file:///D:/programacion%20nacho/Portafollio/pag2-portafollio/cv/CV_Ignacio_Odorico.html"
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=block" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0f172a;
+      --text: #334155;
+      --muted: #64748b;
+      --accent: #1d6fd8;
+      --accent-dark: #164f9c;
+      --accent-soft: #eaf2fd;
+      --line: #dbe3ee;
+    }
+
+    @page {
+      size: A4;
+      margin: 11mm 13mm 11mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      font-size: 9.3pt;
+      line-height: 1.42;
+      color: var(--text);
+      background: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    @media screen {
+      body {
+        background: #e5e9f0;
+        padding: 24px 0;
+      }
+
+      .sheet {
+        width: 210mm;
+        margin: 0 auto;
+        padding: 11mm 13mm;
+        background: #fff;
+        box-shadow: 0 10px 40px rgba(15, 23, 42, 0.18);
+      }
+    }
+
+    /* ---------- Encabezado ---------- */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 8mm;
+      padding-bottom: 3.6mm;
+      border-bottom: 2.2px solid var(--accent);
+    }
+
+    .name {
+      font-size: 25pt;
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .headline {
+      margin-top: 1.6mm;
+      font-size: 10.6pt;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .contact {
+      list-style: none;
+      display: grid;
+      grid-template-columns: auto;
+      gap: 0.9mm;
+      font-size: 8.3pt;
+      color: var(--text);
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .contact li {
+      display: flex;
+      align-items: center;
+      gap: 1.8mm;
+    }
+
+    .contact svg {
+      width: 9pt;
+      height: 9pt;
+      flex: none;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ---------- Datos destacados ---------- */
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.4mm;
+      margin-top: 3.6mm;
+    }
+
+    .kpi {
+      background: var(--accent-soft);
+      border-radius: 2.2mm;
+      padding: 2.2mm 3mm;
+    }
+
+    .kpi b {
+      display: block;
+      font-size: 15pt;
+      line-height: 1.1;
+      font-weight: 800;
+      color: var(--accent-dark);
+    }
+
+    .kpi span {
+      display: block;
+      margin-top: 0.4mm;
+      font-size: 7.7pt;
+      line-height: 1.3;
+      color: var(--text);
+    }
+
+    .core {
+      margin-top: 2.8mm;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.3mm;
+      font-size: 7.9pt;
+    }
+
+    .core-label {
+      font-weight: 700;
+      color: var(--ink);
+      margin-right: 0.8mm;
+    }
+
+    .chip {
+      padding: 0.5mm 2mm;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      color: var(--ink);
+      font-weight: 500;
+      background: #f8fafc;
+    }
+
+    /* ---------- Secciones ---------- */
+    .section {
+      margin-top: 4.4mm;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 2.4mm;
+      margin-bottom: 2.2mm;
+      font-size: 9pt;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      break-after: avoid;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .entry {
+      break-inside: avoid;
+    }
+
+    .entry + .entry {
+      margin-top: 3.2mm;
+    }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 4mm;
+    }
+
+    .entry-title {
+      font-size: 10.4pt;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .entry-title .sub {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .entry-meta {
+      flex: none;
+      font-size: 8pt;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-left: 1.2mm;
+      padding: 0.2mm 1.6mm;
+      border-radius: 99px;
+      font-size: 6.9pt;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      vertical-align: 1px;
+      color: var(--accent-dark);
+      background: var(--accent-soft);
+    }
+
+    .badge.star {
+      color: #9a3412;
+      background: #fff1e6;
+    }
+
+    .stack {
+      margin-top: 0.6mm;
+      font-size: 7.9pt;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    /* Native markers (no positioned pseudo-elements) keep the PDF text in reading order for ATS parsers */
+    ul.bullets {
+      list-style: disc outside;
+      margin-top: 1.2mm;
+      padding-left: 3.8mm;
+    }
+
+    ul.bullets li {
+      padding-left: 0.4mm;
+    }
+
+    ul.bullets li::marker {
+      color: var(--accent);
+      font-size: 1.05em;
+    }
+
+    ul.bullets li + li {
+      margin-top: 0.7mm;
+    }
+
+    p.summary {
+      font-size: 9.5pt;
+      line-height: 1.5;
+    }
+
+    /* ---------- Stack técnico ---------- */
+    .skills {
+      display: grid;
+      grid-template-columns: 34mm 1fr;
+      row-gap: 1.3mm;
+      column-gap: 3mm;
+      break-inside: avoid;
+    }
+
+    .skills dt {
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+      gap: 7mm;
+    }
+
+    .two-col > .section {
+      margin-top: 4.4mm;
+    }
+  </style>
+</head>
+
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></symbol>
+  </svg>
+
+  <main class="sheet">
+    <!-- ================= Encabezado ================= -->
+    <header class="header">
+      <div>
+        <h1 class="name">Ignacio Martin Odorico</h1>
+        <p class="headline">Programador UTN · Desarrollador Full Stack<br />IA aplicada y automatización</p>
+      </div>
+      <ul class="contact">
+        <li><svg><use href="#i-pin" /></svg>Mendoza, Argentina</li>
+        <li><svg><use href="#i-mail" /></svg><a href="mailto:cony20082008@gmail.com">cony20082008@gmail.com</a></li>
+        <li><svg><use href="#i-phone" /></svg><a href="https://wa.me/5492613014463">+54 261 301-4463</a></li>
+        <li><svg><use href="#i-globe" /></svg><a href="https://ignacioodorico.github.io/portafolio-ignacio-odorico/">Portafolio con demos en video</a></li>
+        <li><svg><use href="#i-github" /></svg><a href="https://github.com/IgnacioOdorico">github.com/IgnacioOdorico</a></li>
+        <li><svg><use href="#i-linkedin" /></svg><a href="https://www.linkedin.com/in/ignacio-odorico-46328530b/">linkedin.com/in/ignacio-odorico-46328530b</a></li>
+      </ul>
+    </header>
+
+    <!-- ================= Datos destacados ================= -->
+    <div class="kpis">
+      <div class="kpi"><b>6</b><span>productos Full Stack construidos de punta a punta</span></div>
+      <div class="kpi"><b>+3.000</b><span>tests automatizados entre mis proyectos</span></div>
+      <div class="kpi"><b>8</b><span>workflows de n8n con IA que uso a diario</span></div>
+      <div class="kpi"><b>92,7 %</b><span>de exactitud de mi asistente de IA al clasificar consultas</span></div>
+    </div>
+
+    <div class="core">
+      <span class="core-label">Stack principal</span>
+      <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">React</span>
+      <span class="chip">TypeScript</span><span class="chip">PostgreSQL</span><span class="chip">Docker</span>
+      <span class="chip">n8n</span><span class="chip">OpenAI</span><span class="chip">Java</span>
+      <span class="chip">Spring Boot</span><span class="chip">Node.js</span><span class="chip">GitHub Actions</span>
+    </div>
+
+    <!-- ================= Perfil ================= -->
+    <section class="section">
+      <h2 class="section-title">Perfil</h2>
+      <p class="summary">
+        <strong>Programador egresado de la UTN</strong> y <strong>desarrollador Full Stack</strong>. Construyo productos
+        completos: modelo de datos, API REST, interfaz, autenticación y seguridad, tests automatizados, Docker y CI.
+        Mi diferencial es la <strong>IA en dos frentes</strong>: la integro en los productos (asistentes que atienden
+        clientes por WhatsApp, Telegram y correo, análisis y redacción con LLMs, automatizaciones con n8n) y la uso como
+        un equipo de desarrollo con metodología: Spec-Driven Development, subagentes, memoria persistente y TDD. Me
+        adapto rápido a cualquier stack porque domino los fundamentos y sé dirigir a la IA para entregar rápido sin
+        resignar calidad.
+      </p>
+    </section>
+
+    <!-- ================= Experiencia ================= -->
+    <section class="section">
+      <h2 class="section-title">Experiencia</h2>
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Desarrollador Full Stack freelance <span class="sub">· Emprendimiento propio</span></h3>
+          <span class="entry-meta">2026 – actualidad · Mendoza</span>
+        </div>
+        <ul class="bullets">
+          <li>Diseño y desarrollo soluciones a medida para <strong>PyMEs gastronómicas</strong>: apps de pedidos online
+            instalables (PWA) con menú, carrito, zonas de envío y pedido por WhatsApp, más un panel de pedidos para el
+            local.</li>
+          <li>Genero mis propias oportunidades con <strong>Anzuelo</strong>, el CRM con IA que desarrollé: encuentra
+            negocios, detecta qué problema tienen y prepara el primer contacto.</li>
+          <li>Llevo el proceso completo con cada negocio: relevamiento, demo funcional que se abre desde el celular,
+            propuesta comercial y presupuesto.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ================= Proyectos ================= -->
+    <section class="section">
+      <h2 class="section-title">Proyectos</h2>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Anzuelo <span class="sub">· CRM de prospección con IA</span><span class="badge star">En uso diario</span></h3>
+          <a class="entry-meta" href="https://ignacioodorico.github.io/portafolio-ignacio-odorico/#proyectos">Repo privado · ver demo</a>
+        </div>
+        <p class="stack">n8n · OpenAI · Apify · FastAPI · PostgreSQL · SQLAlchemy · React · TypeScript · Docker · GitHub Actions</p>
+        <ul class="bullets">
+          <li>Automatiza el circuito comercial con <strong>8 workflows de n8n</strong>: scraping de Google Maps (Apify),
+            análisis y puntaje de cada negocio con GPT-4o-mini, mensajes personalizados, email por SMTP, respuestas
+            leídas por IMAP y clasificadas por IA, reuniones con Cal.com y alertas de fallas.</li>
+          <li>Envíos controlados: cola con límites diarios y horarios validados por la API, warm-up por casilla con pausa
+            automática si sube el rebote y aprobación humana en WhatsApp e Instagram para no arriesgar baneos.</li>
+          <li>API REST en FastAPI con <strong>90 endpoints</strong>, PWA en React + TypeScript, métricas de conversión
+            por rubro, canal y plantilla, 2FA con Argon2, CI en GitHub Actions y <strong>más de 1.800 tests</strong>.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Active Trace <span class="sub">· Plataforma multi-tenant de gestión académica</span></h3>
+          <a class="entry-meta" href="https://github.com/IgnacioOdorico/active-trace">github.com/IgnacioOdorico/active-trace</a>
+        </div>
+        <p class="stack">FastAPI · SQLAlchemy async · PostgreSQL · React · TypeScript · TanStack Query · Tailwind · Docker · OpenTelemetry</p>
+        <ul class="bullets">
+          <li>Se monta sobre Moodle: importa calificaciones, detecta alumnos atrasados según el umbral de cada materia y
+            gestiona comunicaciones masivas con aprobación, procesadas en cola por un worker en segundo plano.</li>
+          <li><strong>7 roles</strong> con su propio inicio y permisos y datos aislados por institución; cubre
+            encuentros, coloquios, equipos docentes y liquidación de honorarios.</li>
+          <li>Seguridad desde el diseño: JWT con refresh token rotativo, 2FA, Argon2, <strong>cifrado AES-256</strong>
+            de DNI, CUIL y CBU y auditoría de solo escritura. Trazas con OpenTelemetry y <strong>más de 1.300
+            tests</strong>.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Atendo <span class="sub">· Atención al cliente con IA para e-commerce</span><span class="badge">Trabajo integrador UTN</span></h3>
+          <a class="entry-meta" href="https://github.com/IgnacioOdorico/Automatizacion-de-Atencion-al-Cliente-en-E-commerce-e-Inteligencia-Artificial">Ver en GitHub</a>
+        </div>
+        <p class="stack">n8n · GPT-4o-mini · FastAPI · PostgreSQL · React · Docker · Grafana</p>
+        <ul class="bullets">
+          <li>Asistente de IA que atiende por <strong>WhatsApp, Telegram y correo</strong>: clasifica la intención
+            (consulta, estado de pedido o reclamo), responde con el catálogo y las políticas reales y deriva los
+            reclamos como tickets.</li>
+          <li>Automatiza el post-venta: procesa cada pedido, verifica y descuenta stock, confirma la venta y avisa al
+            cliente.</li>
+          <li>Resultados medidos: de 49,13 s a 0,063 s por pedido (<strong>780x</strong>) y <strong>92,7 % de
+            exactitud</strong> al clasificar consultas.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">FoodStore <span class="sub">· Pedidos y gestión para locales de comida</span></h3>
+          <a class="entry-meta" href="https://github.com/IgnacioOdorico/FoodStore-completo">github.com/IgnacioOdorico/FoodStore-completo</a>
+        </div>
+        <p class="stack">FastAPI · PostgreSQL · React · TypeScript · TanStack Query · WebSockets · MercadoPago · Cloudinary · Docker</p>
+        <ul class="bullets">
+          <li>Tienda con pago por <strong>MercadoPago</strong> (webhook con firma HMAC) y panel con pedidos en
+            <strong>tiempo real por WebSockets</strong>, máquina de estados con auditoría, stock y métricas de ventas.</li>
+          <li>4 roles validados en el backend, JWT con refresh token rotativo, arquitectura en capas y casi 100 tests con
+            Pytest.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Candela Cartoons <span class="sub">· Streaming de dibujos clásicos con estética CRT</span></h3>
+          <a class="entry-meta" href="https://ignacioodorico.github.io/portafolio-ignacio-odorico/#proyectos">Repo privado · ver demo</a>
+        </div>
+        <p class="stack">React · Node.js · Express · SQLite · Puppeteer · Docker</p>
+        <ul class="bullets">
+          <li>Unifica episodios de múltiples proveedores: resuelve la URL real de cada stream y la sirve por un
+            <strong>proxy HLS propio</strong>, con cuentas, favoritos, progreso, Top 10 y panel de administración con
+            sincronización automática.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Planova <span class="sub">· Gestor de tareas Kanban</span></h3>
+          <a class="entry-meta" href="https://github.com/IgnacioOdorico/PLANOVA">github.com/IgnacioOdorico/PLANOVA</a>
+        </div>
+        <p class="stack">Java · Spring Boot · JWT · React · TypeScript · Tailwind · MySQL · Docker</p>
+        <ul class="bullets">
+          <li>API REST en <strong>Spring Boot</strong> con JWT y validación de propiedad en cada petición; tablero
+            Kanban con drag &amp; drop, prioridades y vencimientos automáticos; se levanta completo con un solo comando
+            de Docker.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ================= Desarrollo con IA ================= -->
+    <section class="section entry">
+      <h2 class="section-title">Desarrollo con IA · cómo trabajo</h2>
+      <ul class="bullets">
+        <li><strong>Spec-Driven Development (SDD) con OpenSpec</strong>: propuesta, especificaciones, diseño y tareas
+          antes de escribir código, para que la IA construya sobre requisitos claros y no sobre suposiciones.</li>
+        <li><strong>Organic Driven Development (ODD)</strong>: plan de tareas por feature, commits por unidad de
+          trabajo y PRs encadenados (<em>stacked PRs</em>) chicos y fáciles de revisar.</li>
+        <li><strong>Orquestación de agentes en Claude Code</strong>: subagentes para explorar, implementar y verificar,
+          y manejo de la <strong>ventana de contexto</strong> para que el modelo no pierda el hilo en tareas largas.</li>
+        <li><strong>Memoria persistente con Engram</strong> entre sesiones y servidores <strong>MCP</strong> (Context7
+          para documentación actualizada, CodeGraph para el grafo del código).</li>
+        <li><strong>Calidad</strong>: TDD estricto (rojo, verde, refactor), revisión adversarial con revisores
+          independientes y verificación con evidencia antes de dar algo por terminado.</li>
+      </ul>
+    </section>
+
+    <!-- ================= Stack técnico ================= -->
+    <section class="section">
+      <h2 class="section-title">Stack técnico</h2>
+      <dl class="skills">
+        <dt>Backend</dt>
+        <dd>Python, FastAPI, SQLAlchemy (async), Java, Spring Boot, Node.js, Express, API REST, WebSockets, JWT</dd>
+        <dt>Frontend</dt>
+        <dd>React, TypeScript, JavaScript, TanStack Query, Tailwind CSS, Vite, PWA, HTML, CSS</dd>
+        <dt>Bases de datos</dt>
+        <dd>PostgreSQL, MySQL, SQLite, MongoDB</dd>
+        <dt>IA y automatización</dt>
+        <dd>n8n, OpenAI API (GPT-4o-mini), LLMs, prompt engineering, Apify, Puppeteer, bots de WhatsApp, Telegram y
+          email</dd>
+        <dt>Calidad y DevOps</dt>
+        <dd>Pytest, TDD, Docker, GitHub Actions, OpenTelemetry, Grafana, Git y GitHub</dd>
+        <dt>Seguridad</dt>
+        <dd>2FA (TOTP), Argon2, cifrado AES-256, rate limiting, auditoría</dd>
+        <dt>IA para desarrollo</dt>
+        <dd>Claude Code, OpenSpec, Engram, MCP (Context7, CodeGraph)</dd>
+      </dl>
+    </section>
+
+    <!-- ================= Formación e idiomas ================= -->
+    <div class="two-col">
+      <section class="section entry">
+        <h2 class="section-title">Formación</h2>
+        <div class="entry-head">
+          <h3 class="entry-title">Técnico Universitario en Programación</h3>
+          <span class="entry-meta">Egresado 2026</span>
+        </div>
+        <p>Universidad Tecnológica Nacional (UTN) · Mendoza</p>
+        <ul class="bullets">
+          <li>Trabajo integrador: <strong>Atendo</strong>, automatización de la atención al cliente en e-commerce con
+            IA.</li>
+          <li>POO, estructuras de datos y algoritmos, bases de datos y arquitectura de software.</li>
+        </ul>
+      </section>
+
+      <section class="section entry">
+        <h2 class="section-title">Idiomas</h2>
+        <ul class="bullets">
+          <li><strong>Español</strong>: nativo</li>
+          <li><strong>Inglés</strong>: técnico, lectura de documentación</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</body>
+
+</html>
