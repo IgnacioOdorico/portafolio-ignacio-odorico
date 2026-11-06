@@ -46,18 +46,18 @@ Portafollio/
     ├── styles.css           # Estilos y temas
     ├── script.js            # Lógica de temas, música, interacciones
     ├── audio/               # Música de fondo
-    ├── cv/                  # CV en PDF descargable
+    ├── cv/                  # CV: fuente HTML editable + PDF exportado (descargable)
     ├── img/
     │   ├── img-logos/           # Logos de tecnologías (SVG)
     │   ├── img-iconos/          # Íconos de navegación
     │   ├── personajes/          # Personaje animado flotante
     │   ├── de proyectos/        # Capturas y videos demo de proyectos
     │   │   ├── anzuelo/         # Galería y video de Anzuelo
-    │   │   ├── planova/         # Galería y video de Planova
-    │   │   ├── candela/         # Galería y video de Candela Cartoons
-    │   │   ├── foodstore/       # Galería y video de FoodStore
+    │   │   ├── active-trace/    # Galería y video de Active Trace
     │   │   ├── atendo/          # Galería y videos de Atendo
-    │   │   └── active-trace/    # Galería y video de Active Trace
+    │   │   ├── foodstore/       # Galería y video de FoodStore
+    │   │   ├── candela/         # Galería y video de Candela Cartoons
+    │   │   └── planova/         # Galería y video de Planova
     │   └── ...                  # Imágenes de perfil y secciones
 ```
 
@@ -76,13 +76,26 @@ Portafollio/
 
 ## 📂 Proyectos destacados
 
-### 🪐 Planova
-> Aplicación Full Stack de gestión de tareas con tablero Kanban, drag & drop y diseño Glassmorphism con temática espacial.
+En el mismo orden que en el portafolio:
 
-- **Backend:** Spring Boot + JWT + MySQL + REST API
-- **Frontend:** React + TypeScript + TailwindCSS + Vite
-- **Features:** autenticación segura, ownership por usuario, estado automático de tareas vencidas, comentarios por tarea
-- 🔗 [Ver repositorio](https://github.com/IgnacioOdorico/PLANOVA)
+| Proyecto | Qué es | Stack | Repo |
+|----------|--------|-------|------|
+| Anzuelo | CRM de prospección con IA y 8 workflows de n8n | n8n, OpenAI, FastAPI, PostgreSQL, React | Privado (video en el portafolio) |
+| Active Trace | Plataforma multi-tenant de gestión académica sobre Moodle | FastAPI, PostgreSQL, React, OpenTelemetry | [active-trace](https://github.com/IgnacioOdorico/active-trace) |
+| Atendo | Atención al cliente con IA por WhatsApp, Telegram y correo (trabajo integrador UTN) | n8n, GPT-4o-mini, FastAPI, React | [Repositorio](https://github.com/IgnacioOdorico/Automatizacion-de-Atencion-al-Cliente-en-E-commerce-e-Inteligencia-Artificial) |
+| FoodStore | Pedidos y gestión para locales de comida con MercadoPago y WebSockets | FastAPI, PostgreSQL, React | [FoodStore-completo](https://github.com/IgnacioOdorico/FoodStore-completo) |
+| Candela Cartoons | Streaming de dibujos clásicos con proxy HLS propio | React, Node.js, SQLite, Puppeteer | Privado (video en el portafolio) |
+| Planova | Gestor de tareas Kanban | Spring Boot, React, MySQL | [PLANOVA](https://github.com/IgnacioOdorico/PLANOVA) |
+
+## 📄 Regenerar el CV
+
+El CV se edita en `pag2-portafollio/cv/CV_Ignacio_Odorico.html` y se exporta a PDF con Chrome headless (desde la raíz del repo):
+
+```bash
+"/c/Program Files/Google/Chrome/Application/chrome.exe" --headless=new --disable-gpu --no-pdf-header-footer --print-to-pdf="pag2-portafollio/cv/CV_Ignacio_Odorico.pdf" "file:///D:/programacion%20nacho/Portafollio/pag2-portafollio/cv/CV_Ignacio_Odorico.html"
+```
+
+Después de exportarlo, hay que subir la versión del link en `pag2-portafollio/index.html` (`CV_Ignacio_Odorico.pdf?v=AAAAMMDD`) para que GitHub Pages no sirva el PDF viejo desde la caché.
 
 ---
 
@@ -97,5 +110,5 @@ Portafollio/
 ---
 
 <p align="center">
-  <em>Hecho con 💙 y mucho café — Ignacio Odorico · 2025</em>
+  <em>Hecho con 💙 y mucho café — Ignacio Odorico · 2026</em>
 </p>
