@@ -1938,3 +1938,117 @@ body,
 .video-picker-modal.closing .video-picker-panel {
   animation: lb-pop 0.25s ease reverse both;
 }
+
+
+/* ===================================== */
+/* 🔹 SOBRE MÍ: texto largo + números     */
+/* ===================================== */
+
+.sobre-mi-texto {
+  text-align: left;
+}
+
+.sobre-mi-texto p + p {
+  margin-top: 0.9em;
+}
+
+.sobre-mi-card .sobre-mi-texto p {
+  font-size: 1.15rem;
+  line-height: 1.65;
+}
+
+.sobre-mi-card .sobre-mi-texto .sobre-mi-lead {
+  font-size: 1.3rem;
+  line-height: 1.55;
+}
+
+.sobre-mi-texto strong {
+  font-weight: 700;
+}
+
+.sobre-mi-datos {
+  list-style: none;
+  margin: 1.8rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.sobre-mi-datos li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.9rem 0.6rem;
+  border: 2px solid var(--marron-oscuro);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.sobre-mi-datos strong {
+  font-size: 1.9rem;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.sobre-mi-datos span {
+  font-size: 0.92rem;
+  line-height: 1.3;
+}
+
+@media (max-width: 1024px) {
+  .sobre-mi-card .sobre-mi-texto p {
+    font-size: 1.05rem;
+  }
+
+  .sobre-mi-card .sobre-mi-texto .sobre-mi-lead {
+    font-size: 1.15rem;
+  }
+
+  .sobre-mi-datos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Con el texto nuevo, la tarjeta necesita todo el ancho: se apila debajo del personaje */
+@media (max-width: 680px) {
+  .contenedor-sobre-mi {
+    flex-direction: column;
+    width: 92%;
+    gap: 0.5rem;
+  }
+
+  .contenedor-flotante {
+    max-width: 150px;
+  }
+
+  .sobre-mi-card {
+    max-width: 100%;
+    width: 100%;
+    padding: 1.4rem 1.1rem;
+  }
+
+  .sobre-mi-card .sobre-mi-texto p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  .sobre-mi-card .sobre-mi-texto .sobre-mi-lead {
+    font-size: 1.05rem;
+  }
+
+  .sobre-mi-datos {
+    gap: 0.6rem;
+    margin-top: 1.3rem;
+  }
+
+  .sobre-mi-datos strong {
+    font-size: 1.5rem;
+  }
+
+  .sobre-mi-datos span {
+    font-size: 0.82rem;
+  }
+}
