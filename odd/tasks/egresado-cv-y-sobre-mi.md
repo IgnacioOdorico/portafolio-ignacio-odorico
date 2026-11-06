@@ -93,7 +93,13 @@ Check: el PDF sigue en 2 páginas y ahora Atendo entra en la página 1 (los 3 pr
 ## Progreso
 - Rama: `feat/egresado-cv-sobre-mi`. Todas las tareas hechas.
 
-## Estado
+## Segunda ronda (rama `feat/cv-ingles-y-ajustes`)
+- [x] T7. `cartoon api`: `.codegraph/` agregado al `.gitignore` (sin commit: ese repo tiene trabajo del usuario sin commitear en `feat/multi-site-updaters`).
+- [x] T8. "Sobre mí": Planova no se nombraba → "…y Planova, un gestor de tareas Kanban con API REST en Java y Spring Boot".
+- [x] T9. CV: los links de los proyectos eran inconsistentes ("Repo privado · ver demo", URL completa, "Ver en GitHub"). Ahora todos dicen "Video demo · GitHub" o "Video demo · Repo privado"; "Video demo" lleva a la card de ese proyecto (`index.html#proyecto-<id>`). Las 6 cards tienen `id="proyecto-*"` y `scroll-margin-top: 80px` para no quedar debajo del navbar fijo (60 px). Check: 8 encabezados de una sola línea, PDF en 2 páginas con 15 links únicos, la card queda en top 80 px al entrar por el anchor. La animación de aparición no se puede probar con el panel oculto (no corre `requestAnimationFrame`; 0 de 15 elementos se muestran en toda la página), y es el mismo mecanismo de siempre.
+- [ ] T10. CV en inglés para trabajos remotos.
+
+## Estado (primera ronda)
 Publicado. El usuario lo aprobó ("Sí, publicalo"); `6a159b6` se integró en `main` por fast-forward (`b050db8..6a159b6`) y se pusheó. GitHub Pages sirvió la versión nueva a los ~70 s. En vivo: `styles.css?v=20261105c` (200), `cv/CV_Ignacio_Odorico.pdf?v=20261105` (200, `application/pdf`, 457.688 bytes, igual al local), cards en el orden nuevo, `to=cony20082008@gmail.com` y sin "estudiante".
 
 ## Próximo paso

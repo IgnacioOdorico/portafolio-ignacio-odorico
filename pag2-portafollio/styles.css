@@ -2003,3 +2003,8 @@ body,
     font-size: 1.05rem;
   }
 }
+
+/* Deep links from the CV (#proyecto-*) land below the sticky navbar */
+.proyectos-card {
+  scroll-margin-top: 80px;
+}
