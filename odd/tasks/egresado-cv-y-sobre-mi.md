@@ -91,7 +91,11 @@ Check: el PDF sigue en 2 páginas y ahora Atendo entra en la página 1 (los 3 pr
 - Sin overflow horizontal a 375 px y 0 errores de consola.
 
 ## Progreso
-- Rama: `feat/egresado-cv-sobre-mi`. Todas las tareas hechas; nada pusheado ni integrado en `main`.
+- Rama: `feat/egresado-cv-sobre-mi`. Todas las tareas hechas.
+
+## Estado
+Publicado. El usuario lo aprobó ("Sí, publicalo"); `6a159b6` se integró en `main` por fast-forward (`b050db8..6a159b6`) y se pusheó. GitHub Pages sirvió la versión nueva a los ~70 s. En vivo: `styles.css?v=20261105c` (200), `cv/CV_Ignacio_Odorico.pdf?v=20261105` (200, `application/pdf`, 457.688 bytes, igual al local), cards en el orden nuevo, `to=cony20082008@gmail.com` y sin "estudiante".
 
 ## Próximo paso
-Que el usuario revise el CV y el "Sobre mí", y decida si se integra en `main` y se publica (GitHub Pages sirve desde `main`).
+- Pendiente del usuario: agregar `.codegraph/` al `.gitignore` de `cartoon api` (el índice se creó para analizar los resolvers).
+- Opcional: versión del CV en inglés y actualizar LinkedIn con el mismo contenido.
