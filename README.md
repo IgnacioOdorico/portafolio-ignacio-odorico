@@ -52,6 +52,7 @@ Portafollio/
     │   ├── img-iconos/          # Íconos de navegación
     │   ├── personajes/          # Personaje animado flotante
     │   ├── de proyectos/        # Capturas y videos demo de proyectos
+    │   │   ├── anzuelo/         # Galería y video de Anzuelo
     │   │   ├── planova/         # Galería y video de Planova
     │   │   ├── candela/         # Galería y video de Candela Cartoons
     │   │   ├── foodstore/       # Galería y video de FoodStore

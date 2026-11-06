@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png?v=20261029a" />
   <link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png?v=20261029a" />
   <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png?v=20261029a" />
-  <link rel="stylesheet" href="styles.css?v=20261028a" />
+  <link rel="stylesheet" href="styles.css?v=20261105a" />
 </head>
 
 <body>
@@ -89,6 +89,106 @@
   <section class="proyectos" id="proyectos">
     <h2>Proyectos</h2>
     <div class="grid-proyectos">
+      <div class="proyectos-card hidden-scroll" data-gallery>
+        <button type="button" class="proyectos-card-img galeria-trigger" data-index="0"
+          aria-label="Abrir galería de capturas de Anzuelo">
+          <img src="img/de proyectos/anzuelo/01-inicio.webp" alt="Pantalla de inicio de Anzuelo con métricas del día">
+          <span class="galeria-overlay">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z M4 15l4-4 4 4 3-3 5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            Ver capturas
+          </span>
+          <span class="galeria-count">17 capturas</span>
+        </button>
+        <div class="galeria-thumbs">
+          <button type="button" data-index="0" aria-label="Captura 1: Inicio">
+            <img src="img/de proyectos/anzuelo/01-inicio.webp" alt="Inicio" data-caption="Inicio: contactados, respuestas y tasa de respuesta, el límite de envío de cada canal y casilla, y la cola del día" loading="lazy">
+          </button>
+          <button type="button" data-index="1" aria-label="Captura 2: Scraping">
+            <img src="img/de proyectos/anzuelo/02-scraping.webp" alt="Scraping" data-caption="Campañas: scraping de Google Maps por rubro, zona y término, con el historial de cada corrida, negocios nuevos, duplicados y costo en USD" loading="lazy">
+          </button>
+          <button type="button" data-index="2" aria-label="Captura 3: Ficha del negocio">
+            <img src="img/de proyectos/anzuelo/03-ficha-negocio.webp" alt="Ficha del negocio" data-caption="Ficha del negocio: el análisis de la IA (problema, oferta, gancho, score y señales), el mensaje que redactó y la línea de tiempo" loading="lazy">
+          </button>
+          <button type="button" data-index="3" aria-label="Captura 4: Cola del día">
+            <img src="img/de proyectos/anzuelo/04-cola.webp" alt="Cola del día" data-caption="Cola del día: mensajes personalizados listos para enviar por WhatsApp, con el problema detectado y el contador del límite diario" loading="lazy">
+          </button>
+          <button type="button" data-index="4" aria-label="Captura 5: Pipeline Kanban">
+            <img src="img/de proyectos/anzuelo/05-pipeline-tablero.webp" alt="Pipeline Kanban" data-caption="Pipeline en tablero Kanban: cada negocio en su etapa, filtrable por rubro y por canal" loading="lazy">
+          </button>
+          <button type="button" data-index="5" data-more="+11" aria-label="Captura 6: Métricas (y 11 capturas más)">
+            <img src="img/de proyectos/anzuelo/06-metricas.webp" alt="Métricas" data-caption="Métricas: KPIs del período, contactados y respuestas por día, embudo de conversión y tasa de respuesta por rubro y por canal" loading="lazy">
+          </button>
+          <button type="button" data-index="6" aria-label="Captura 7: Qué plantilla funciona">
+            <img src="img/de proyectos/anzuelo/07-metricas-plantillas.webp" alt="Qué plantilla funciona" data-caption="Qué plantilla funciona: tasa de respuesta de cada plantilla por canal y paso, con aviso cuando la muestra todavía es chica" loading="lazy">
+          </button>
+          <button type="button" data-index="7" aria-label="Captura 8: Mapa de negocios">
+            <img src="img/de proyectos/anzuelo/08-mapa-negocios.webp" alt="Mapa de negocios" data-caption="Embudo por rubro, por canal y por mes (con el gasto en Apify) y mapa de negocios coloreado por etapa" loading="lazy">
+          </button>
+          <button type="button" data-index="8" aria-label="Captura 9: Estado de las automatizaciones">
+            <img src="img/de proyectos/anzuelo/09-estado-workflows.webp" alt="Estado de las automatizaciones" data-caption="Estado del sistema: los 8 workflows de n8n con su última corrida, tasa de éxito, duración y ejecuciones de las últimas 24 h" loading="lazy">
+          </button>
+          <button type="button" data-index="9" aria-label="Captura 10: Flujo de un workflow de n8n">
+            <img src="img/de proyectos/anzuelo/10-flujo-n8n.webp" alt="Flujo de un workflow de n8n" data-caption="Flujo de un workflow de n8n dibujado nodo por nodo, con el historial de sus ejecuciones" loading="lazy">
+          </button>
+          <button type="button" data-index="10" aria-label="Captura 11: Sin contactar">
+            <img src="img/de proyectos/anzuelo/11-pipeline-sin-contactar.webp" alt="Sin contactar" data-caption="Sin contactar: el motivo de cada negocio pendiente (sin canal disponible o mensajes en cola), con reintento en un clic" loading="lazy">
+          </button>
+          <button type="button" data-index="11" aria-label="Captura 12: Rubros">
+            <img src="img/de proyectos/anzuelo/12-rubros.webp" alt="Rubros" data-caption="Rubros: oferta principal, ofertas secundarias, términos de búsqueda y negocios por etapa, activables uno por uno" loading="lazy">
+          </button>
+          <button type="button" data-index="12" aria-label="Captura 13: Límites y horarios">
+            <img src="img/de proyectos/anzuelo/13-limites.webp" alt="Límites y horarios" data-caption="Límites y horarios: tope diario por canal, espaciado mínimo entre envíos, días y horas hábiles y seguimiento de WhatsApp" loading="lazy">
+          </button>
+          <button type="button" data-index="13" aria-label="Captura 14: Casillas de email">
+            <img src="img/de proyectos/anzuelo/14-casillas.webp" alt="Casillas de email" data-caption="Casillas de email: warm-up por semana, límite diario, pausa y lectura de respuestas por IMAP" loading="lazy">
+          </button>
+          <button type="button" data-index="14" aria-label="Captura 15: Seguridad">
+            <img src="img/de proyectos/anzuelo/15-seguridad.webp" alt="Seguridad" data-caption="Seguridad: verificación en dos pasos, códigos de recuperación y cierre de sesión en todos los dispositivos" loading="lazy">
+          </button>
+          <button type="button" data-index="15" aria-label="Captura 16: Ingreso con 2FA">
+            <img src="img/de proyectos/anzuelo/16-login-2fa.webp" alt="Ingreso con 2FA" data-caption="Ingreso con verificación en dos pasos (código TOTP o código de recuperación)" loading="lazy">
+          </button>
+          <button type="button" data-index="16" aria-label="Captura 17: Agenda">
+            <img src="img/de proyectos/anzuelo/17-agenda.webp" alt="Agenda" data-caption="Agenda de reuniones por día y por semana" loading="lazy">
+          </button>
+        </div>
+        <h3>Anzuelo <span class="badge-destacado">Proyecto destacado</span> <span class="badge-privado">Repo privado</span></h3>
+        <p class="descripcion-recortable" id="descripcion-anzuelo">
+          CRM de prospección semi-automatizado que uso todos los días para conseguir clientes: encuentra negocios,
+          los analiza con IA, les escribe el primer mensaje y sigue cada contacto hasta la reunión. 8 workflows de
+          n8n mueven todo el circuito: scraping de Google Maps con Apify, análisis y puntaje de cada negocio con
+          GPT-4o-mini (qué problema tiene, qué ofrecerle y con qué gancho), redacción de mensajes personalizados,
+          envío de emails por SMTP, lectura de respuestas por IMAP con clasificación por IA, reuniones sincronizadas
+          con Cal.com y alertas cuando un workflow falla. WhatsApp e Instagram pasan por una cola con límite diario
+          y horario de envío que valida la API, y el último clic es humano para no arriesgar baneos; cada casilla de
+          email tiene su warm-up y se pausa sola si sube la tasa de rebote. Suma pipeline Kanban, seguimientos en
+          días hábiles, métricas de conversión por rubro, canal y plantilla, mapa de negocios y un monitor de solo
+          lectura de las ejecuciones de n8n. Seguridad: 2FA con códigos de recuperación, Argon2, límite de intentos
+          de login y cierre de todas las sesiones. API REST en FastAPI con 90 endpoints sobre PostgreSQL, frontend
+          en React + TypeScript instalable como PWA, Docker, CI en GitHub Actions y más de 1.800 tests automatizados.
+        </p>
+        <button type="button" class="ver-mas" aria-expanded="false" aria-controls="descripcion-anzuelo">Ver más</button>
+        <div class="proyectos-tags">
+          <span class="tag">n8n</span>
+          <span class="tag">OpenAI</span>
+          <span class="tag">Apify</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">SQLAlchemy</span>
+          <span class="tag">React</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Docker</span>
+          <span class="tag">GitHub Actions</span>
+        </div>
+        <button type="button" class="proyectos-btn proyectos-btn-video"
+          data-video="img/de proyectos/anzuelo/anzuelo-demo.mp4"
+          data-poster="img/de proyectos/anzuelo/poster.webp"
+          data-title="Anzuelo · Demo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+          Ver video del proyecto
+        </button>
+      </div>
+
       <div class="proyectos-card hidden-scroll" data-gallery>
         <button type="button" class="proyectos-card-img galeria-trigger" data-index="1"
           aria-label="Abrir galería de capturas de Planova">
@@ -405,18 +505,6 @@
         </div>
       </div>
 
-      <div class="proyectos-card hidden-scroll">
-        <div class="proyectos-card-img">
-          <img src="img/coming-soon-7848149_640.webp" alt="imagen proyecto">
-        </div>
-        <h3>Title</h3>
-        <p>
-          Body text for whatever you'd like to say. Add main takeaway points,
-          quotes, anecdotes, or even a very very short story.
-        </p>
-        <a href="#" class="proyectos-btn"><img src="img/img-iconos/github-icono-2.png" alt="github icono">Ir a
-          GitHub</a>
-      </div>
     </div>
   </section>
 
