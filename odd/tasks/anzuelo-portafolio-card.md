@@ -51,4 +51,4 @@ Video copiado sin reencodear: 29,3 MB, 4:57, 1080p60 H.264, `moov` antes de `mda
 - Consola: 0 errores.
 
 ## Estado
-Implementado y verificado localmente en la rama `feat/anzuelo-card`. Pendiente: publicar en `main` (GitHub Pages) cuando el usuario lo apruebe.
+Publicado. El usuario lo aprobó ("Sí, publicala"); `6510700` se integró en `main` por fast-forward y se pusheó. GitHub Pages sirvió la card a los ~70 s. En vivo: `styles.css?v=20261105a` con `.badge-destacado`, capturas (`image/webp`) y `anzuelo-demo.mp4` (`video/mp4`, 29.250.272 bytes), todo con 200.
