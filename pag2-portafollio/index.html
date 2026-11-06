@@ -190,61 +190,84 @@
       </div>
 
       <div class="proyectos-card hidden-scroll" data-gallery>
-        <button type="button" class="proyectos-card-img galeria-trigger" data-index="1"
-          aria-label="Abrir galería de capturas de Planova">
-          <img src="img/de proyectos/planova/02-proyectos.webp" alt="Dashboard de proyectos de Planova">
+        <button type="button" class="proyectos-card-img galeria-trigger" data-index="0"
+          aria-label="Abrir galería de capturas de Active Trace">
+          <img src="img/de proyectos/active-trace/01-inicio-coordinador.webp" alt="Inicio del coordinador en Active Trace">
           <span class="galeria-overlay">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z M4 15l4-4 4 4 3-3 5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
             Ver capturas
           </span>
-          <span class="galeria-count">4 capturas</span>
+          <span class="galeria-count">8 capturas</span>
         </button>
         <div class="galeria-thumbs">
-          <button type="button" data-index="0" aria-label="Captura 1: Login">
-            <img src="img/de proyectos/planova/01-login.webp" alt="Login" data-caption="Portal de acceso con autenticación JWT e interfaz Glassmorphism" loading="lazy">
+          <button type="button" data-index="0" aria-label="Captura 1: Inicio del coordinador">
+            <img src="img/de proyectos/active-trace/01-inicio-coordinador.webp" alt="Inicio del coordinador" data-caption="Inicio del coordinador: alumnos en seguimiento, alumnos atrasados por comisión, tareas asignadas y actividad auditada del mes" loading="lazy">
           </button>
-          <button type="button" data-index="1" aria-label="Captura 2: Proyectos">
-            <img src="img/de proyectos/planova/02-proyectos.webp" alt="Proyectos" data-caption="Dashboard de proyectos con fecha de creación y cantidad de tareas" loading="lazy">
+          <button type="button" data-index="1" aria-label="Captura 2: Alumnos atrasados">
+            <img src="img/de proyectos/active-trace/02-alumnos-atrasados.webp" alt="Alumnos atrasados" data-caption="Alumnos atrasados: detección automática según el umbral de aprobación de cada materia, con progreso, gravedad y acceso directo para comunicarse" loading="lazy">
           </button>
-          <button type="button" data-index="2" aria-label="Captura 3: Tablero Kanban">
-            <img src="img/de proyectos/planova/03-kanban.webp" alt="Tablero Kanban" data-caption="Tablero Kanban con drag &amp; drop, columnas personalizables, prioridades y auto-vencimiento" loading="lazy">
+          <button type="button" data-index="2" aria-label="Captura 3: Comunicaciones">
+            <img src="img/de proyectos/active-trace/03-comunicaciones.webp" alt="Comunicaciones" data-caption="Comunicaciones: plantillas con variables por alumno, vista previa por destinatario y seguimiento del estado de cada envío" loading="lazy">
           </button>
-          <button type="button" data-index="3" aria-label="Captura 4: Notas de tarea">
-            <img src="img/de proyectos/planova/04-notas.webp" alt="Notas de tarea" data-caption="Panel lateral de notas y comentarios por tarea" loading="lazy">
+          <button type="button" data-index="3" aria-label="Captura 4: Portal del alumno">
+            <img src="img/de proyectos/active-trace/04-portal-alumno.webp" alt="Portal del alumno" data-caption="Portal del alumno: sus materias, avisos con confirmación de lectura y reserva de turnos de coloquio con cupos" loading="lazy">
+          </button>
+          <button type="button" data-index="4" aria-label="Captura 5: Inicio de finanzas">
+            <img src="img/de proyectos/active-trace/05-finanzas.webp" alt="Inicio de finanzas" data-caption="Inicio de finanzas: total liquidado del período, liquidación por rol y estado de las facturas docentes" loading="lazy">
+          </button>
+          <button type="button" data-index="5" data-more="+2" aria-label="Captura 6: Panel de auditoría (y 2 capturas más)">
+            <img src="img/de proyectos/active-trace/06-auditoria.webp" alt="Panel de auditoría" data-caption="Panel de auditoría: actividad diaria filtrable por fecha, materia y tipo de acción, con el log completo de acciones" loading="lazy">
+          </button>
+          <button type="button" data-index="6" aria-label="Captura 7: Grilla salarial">
+            <img src="img/de proyectos/active-trace/07-grilla-salarial.webp" alt="Grilla salarial" data-caption="Grilla salarial: salario base por rol con vigencia desde/hasta, más los adicionales (plus)" loading="lazy">
+          </button>
+          <button type="button" data-index="7" aria-label="Captura 8: Usuarios del tenant">
+            <img src="img/de proyectos/active-trace/08-usuarios.webp" alt="Usuarios del tenant" data-caption="Usuarios del tenant: alta, edición y desactivación, con los datos de cada institución aislados del resto" loading="lazy">
           </button>
         </div>
-        <h3>Planova</h3>
-        <p>
-          Aplicación Full Stack de gestión de tareas con tablero Kanban, drag &amp; drop y diseño Glassmorphism
-          con temática espacial. API REST en Spring Boot con autenticación JWT y validación de propiedad en cada
-          petición; frontend en React + TypeScript. Incluye prioridades, vencimientos automáticos y notas por tarea.
-          Dockerizado: se levanta completo (MySQL, backend y frontend) con un solo comando.
+        <h3>Active Trace</h3>
+        <p class="descripcion-recortable" id="descripcion-active-trace">
+          Plataforma Full Stack multi-tenant de gestión académica que se monta sobre Moodle para resolver todo lo
+          que el aula virtual no cubre: seguimiento de alumnos, comunicaciones, encuentros, coloquios, equipos
+          docentes y liquidación de honorarios. Importa las calificaciones exportadas del campus, detecta
+          automáticamente a los alumnos atrasados según el umbral de cada materia y permite contactarlos con
+          comunicaciones masivas que pasan por aprobación y se procesan en una cola con un worker en segundo plano.
+          Cada uno de los 7 roles (admin, coordinador, profesor, tutor, alumno, nexo y finanzas) tiene su propio
+          inicio y ve solo lo que sus permisos habilitan, con los datos aislados por institución. Seguridad desde el
+          diseño: JWT con refresh token rotativo, 2FA opcional, contraseñas con Argon2, datos sensibles (DNI, CUIL,
+          CBU) cifrados con AES-256 y una auditoría de solo escritura que registra incluso la impersonación de
+          usuarios. API REST en FastAPI con SQLAlchemy async y PostgreSQL, frontend en React + TypeScript, trazas
+          con OpenTelemetry y más de 1.300 tests automatizados.
         </p>
+        <button type="button" class="ver-mas" aria-expanded="false" aria-controls="descripcion-active-trace">Ver más</button>
         <div class="proyectos-tags">
-          <span class="tag">Spring Boot</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">SQLAlchemy</span>
           <span class="tag">React</span>
           <span class="tag">TypeScript</span>
+          <span class="tag">TanStack Query</span>
           <span class="tag">Tailwind</span>
-          <span class="tag">MySQL</span>
           <span class="tag">Docker</span>
+          <span class="tag">OpenTelemetry</span>
         </div>
         <div class="proyectos-acciones">
           <button type="button" class="proyectos-btn proyectos-btn-video"
-            data-video="img/de proyectos/planova/planova-demo.mp4"
-            data-poster="img/de proyectos/planova/poster.webp"
-            data-title="Planova · Demo">
+            data-video="img/de proyectos/active-trace/active-trace-demo.mp4"
+            data-poster="img/de proyectos/active-trace/poster.webp"
+            data-title="Active Trace · Demo">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
             Ver video del proyecto
           </button>
-          <a href="https://github.com/IgnacioOdorico/PLANOVA" target="_blank" class="proyectos-btn"><img
+          <a href="https://github.com/IgnacioOdorico/active-trace" target="_blank" class="proyectos-btn"><img
               src="img/img-iconos/github-icono-2.png" alt="github icono">Ir a GitHub</a>
         </div>
       </div>
 
       <div class="proyectos-card hidden-scroll" data-gallery>
         <button type="button" class="proyectos-card-img galeria-trigger" data-index="0"
-          aria-label="Abrir galería de capturas de Candela Cartoons">
-          <img src="img/de proyectos/candela/01-inicio.webp" alt="Pantalla de inicio de Candela Cartoons">
+          aria-label="Abrir galería de capturas de Atendo">
+          <img src="img/de proyectos/atendo/01-demo.webp" alt="Landing page de Atendo con métricas en vivo">
           <span class="galeria-overlay">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z M4 15l4-4 4 4 3-3 5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
             Ver capturas
@@ -252,44 +275,54 @@
           <span class="galeria-count">5 capturas</span>
         </button>
         <div class="galeria-thumbs">
-          <button type="button" data-index="0" aria-label="Captura 1: Inicio">
-            <img src="img/de proyectos/candela/01-inicio.webp" alt="Inicio" data-caption="Inicio: serie destacada y Top 10 semanal dentro de la carcasa del televisor CRT" loading="lazy">
+          <button type="button" data-index="0" aria-label="Captura 1: Landing">
+            <img src="img/de proyectos/atendo/01-demo.webp" alt="Landing" data-caption="Landing: el post-venta de tu tienda, resuelto solo, con contadores leídos en vivo de esta instalación." loading="lazy">
           </button>
-          <button type="button" data-index="1" aria-label="Captura 2: Canales">
-            <img src="img/de proyectos/candela/02-canales.webp" alt="Canales" data-caption="Explorar canales: catálogo de series organizado por canal" loading="lazy">
+          <button type="button" data-index="1" aria-label="Captura 2: El problema">
+            <img src="img/de proyectos/atendo/02-demo.webp" alt="El problema" data-caption="Sección &quot;El problema&quot;: 49 s por pedido hecho a mano, consultas sin respuesta y errores de stock." loading="lazy">
           </button>
-          <button type="button" data-index="2" aria-label="Captura 3: Detalle de serie">
-            <img src="img/de proyectos/candela/03-detalle-serie.webp" alt="Detalle de serie" data-caption="Ficha de la serie con temporadas y episodios" loading="lazy">
+          <button type="button" data-index="2" aria-label="Captura 3: Chat del asistente">
+            <img src="img/de proyectos/atendo/03-demo.webp" alt="Chat del asistente" data-caption="Chat de prueba: el asistente responde con el catálogo y las políticas reales, y deriva los reclamos como caso abierto." loading="lazy">
           </button>
-          <button type="button" data-index="3" aria-label="Captura 4: Reproductor">
-            <img src="img/de proyectos/candela/04-reproductor.webp" alt="Reproductor" data-caption="Reproductor multi-proveedor con selector de fuente y episodio anterior/siguiente" loading="lazy">
+          <button type="button" data-index="3" aria-label="Captura 4: Panel de tickets">
+            <img src="img/de proyectos/atendo/04-demo.webp" alt="Panel de tickets" data-caption="Panel de administración: tickets con canal, prioridad y estado, más dashboard, pedidos, catálogo y métricas." loading="lazy">
           </button>
-          <button type="button" data-index="4" aria-label="Captura 5: Pantalla completa">
-            <img src="img/de proyectos/candela/05-pantalla-completa.webp" alt="Pantalla completa" data-caption="Reproducción en pantalla completa servida por el proxy HLS propio" loading="lazy">
+          <button type="button" data-index="4" aria-label="Captura 5: Resultados">
+            <img src="img/de proyectos/atendo/05-demo.webp" alt="Resultados" data-caption="Resultados del asistente: 1,47 s de respuesta promedio y 92,7 % de exactitud al clasificar la consulta (IC 95 %: 87,3-95,9 %)." loading="lazy">
           </button>
         </div>
-        <h3>Candela Cartoons <span class="badge-privado">Repo privado</span></h3>
-        <p>
-          Plataforma web con estética de televisor CRT retro para ver dibujos animados clásicos.
-          Agrega episodios de múltiples proveedores de video, resuelve la URL real de cada stream y la sirve
-          a través de un proxy HLS propio: un único catálogo y un único reproductor.
-          Incluye cuentas, favoritos, progreso, Top 10 y panel de administración con sincronización automática.
+        <h3>Atendo <span class="badge-tesis">Trabajo Integrador · UTN</span></h3>
+        <p class="descripcion-recortable" id="descripcion-atendo">
+          Sistema Full Stack que automatiza el post-venta de una PyME de e-commerce: cada pedido que entra se
+          procesa, se verifica y descuenta el stock, se confirma la venta y se avisa al cliente; y cada consulta
+          la atiende un asistente de IA por WhatsApp, Telegram o correo. n8n orquesta los flujos, GPT-4o-mini
+          clasifica la intención (consulta, estado de pedido, reclamo) y redacta la respuesta, FastAPI expone la
+          API REST sobre PostgreSQL y el panel en React muestra pedidos, tickets, catálogo, métricas y el estado
+          de cada canal. Medido en laboratorio: 49,13 s por pedido a mano contra 0,063 s automatizado en un
+          pipeline local (780x), y 92,7 % de exactitud al clasificar consultas. Es un prototipo académico:
+          funciona para el volumen de una PyME, no para un pico de tráfico.
         </p>
+        <button type="button" class="ver-mas" aria-expanded="false" aria-controls="descripcion-atendo">Ver más</button>
         <div class="proyectos-tags">
+          <span class="tag">n8n</span>
+          <span class="tag">GPT-4o-mini</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span>
           <span class="tag">React</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">Express</span>
-          <span class="tag">SQLite</span>
-          <span class="tag">Puppeteer</span>
           <span class="tag">Docker</span>
+          <span class="tag">Grafana</span>
         </div>
-        <button type="button" class="proyectos-btn proyectos-btn-video"
-          data-video="img/de proyectos/candela/candela-demo.mp4"
-          data-poster="img/de proyectos/candela/poster.webp"
-          data-title="Candela Cartoons · Demo">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
-          Ver video del proyecto
-        </button>
+        <div class="proyectos-acciones">
+          <button type="button" class="proyectos-btn proyectos-btn-multi-video"
+            aria-label="Ver los 3 videos del proyecto Atendo"
+            data-title="Atendo · Videos del proyecto">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+            <span>Ver los 3 videos</span>
+            <span class="proyectos-btn-meta">2:55 · 6:00 · 11:25</span>
+          </button>
+          <a href="https://github.com/IgnacioOdorico/Automatizacion-de-Atencion-al-Cliente-en-E-commerce-e-Inteligencia-Artificial" target="_blank" class="proyectos-btn"><img
+              src="img/img-iconos/github-icono-2.png" alt="github icono">Ir a GitHub</a>
+        </div>
       </div>
 
       <div class="proyectos-card hidden-scroll" data-gallery>
@@ -371,8 +404,8 @@
 
       <div class="proyectos-card hidden-scroll" data-gallery>
         <button type="button" class="proyectos-card-img galeria-trigger" data-index="0"
-          aria-label="Abrir galería de capturas de Atendo">
-          <img src="img/de proyectos/atendo/01-demo.webp" alt="Landing page de Atendo con métricas en vivo">
+          aria-label="Abrir galería de capturas de Candela Cartoons">
+          <img src="img/de proyectos/candela/01-inicio.webp" alt="Pantalla de inicio de Candela Cartoons">
           <span class="galeria-overlay">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z M4 15l4-4 4 4 3-3 5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
             Ver capturas
@@ -380,127 +413,94 @@
           <span class="galeria-count">5 capturas</span>
         </button>
         <div class="galeria-thumbs">
-          <button type="button" data-index="0" aria-label="Captura 1: Landing">
-            <img src="img/de proyectos/atendo/01-demo.webp" alt="Landing" data-caption="Landing: el post-venta de tu tienda, resuelto solo, con contadores leídos en vivo de esta instalación." loading="lazy">
+          <button type="button" data-index="0" aria-label="Captura 1: Inicio">
+            <img src="img/de proyectos/candela/01-inicio.webp" alt="Inicio" data-caption="Inicio: serie destacada y Top 10 semanal dentro de la carcasa del televisor CRT" loading="lazy">
           </button>
-          <button type="button" data-index="1" aria-label="Captura 2: El problema">
-            <img src="img/de proyectos/atendo/02-demo.webp" alt="El problema" data-caption="Sección &quot;El problema&quot;: 49 s por pedido hecho a mano, consultas sin respuesta y errores de stock." loading="lazy">
+          <button type="button" data-index="1" aria-label="Captura 2: Canales">
+            <img src="img/de proyectos/candela/02-canales.webp" alt="Canales" data-caption="Explorar canales: catálogo de series organizado por canal" loading="lazy">
           </button>
-          <button type="button" data-index="2" aria-label="Captura 3: Chat del asistente">
-            <img src="img/de proyectos/atendo/03-demo.webp" alt="Chat del asistente" data-caption="Chat de prueba: el asistente responde con el catálogo y las políticas reales, y deriva los reclamos como caso abierto." loading="lazy">
+          <button type="button" data-index="2" aria-label="Captura 3: Detalle de serie">
+            <img src="img/de proyectos/candela/03-detalle-serie.webp" alt="Detalle de serie" data-caption="Ficha de la serie con temporadas y episodios" loading="lazy">
           </button>
-          <button type="button" data-index="3" aria-label="Captura 4: Panel de tickets">
-            <img src="img/de proyectos/atendo/04-demo.webp" alt="Panel de tickets" data-caption="Panel de administración: tickets con canal, prioridad y estado, más dashboard, pedidos, catálogo y métricas." loading="lazy">
+          <button type="button" data-index="3" aria-label="Captura 4: Reproductor">
+            <img src="img/de proyectos/candela/04-reproductor.webp" alt="Reproductor" data-caption="Reproductor multi-proveedor con selector de fuente y episodio anterior/siguiente" loading="lazy">
           </button>
-          <button type="button" data-index="4" aria-label="Captura 5: Resultados">
-            <img src="img/de proyectos/atendo/05-demo.webp" alt="Resultados" data-caption="Resultados del asistente: 1,47 s de respuesta promedio y 92,7 % de exactitud al clasificar la consulta (IC 95 %: 87,3-95,9 %)." loading="lazy">
+          <button type="button" data-index="4" aria-label="Captura 5: Pantalla completa">
+            <img src="img/de proyectos/candela/05-pantalla-completa.webp" alt="Pantalla completa" data-caption="Reproducción en pantalla completa servida por el proxy HLS propio" loading="lazy">
           </button>
         </div>
-        <h3>Atendo <span class="badge-tesis">Trabajo Integrador · UTN</span></h3>
-        <p class="descripcion-recortable" id="descripcion-atendo">
-          Sistema Full Stack que automatiza el post-venta de una PyME de e-commerce: cada pedido que entra se
-          procesa, se verifica y descuenta el stock, se confirma la venta y se avisa al cliente; y cada consulta
-          la atiende un asistente de IA por WhatsApp, Telegram o correo. n8n orquesta los flujos, GPT-4o-mini
-          clasifica la intención (consulta, estado de pedido, reclamo) y redacta la respuesta, FastAPI expone la
-          API REST sobre PostgreSQL y el panel en React muestra pedidos, tickets, catálogo, métricas y el estado
-          de cada canal. Medido en laboratorio: 49,13 s por pedido a mano contra 0,063 s automatizado en un
-          pipeline local (780x), y 92,7 % de exactitud al clasificar consultas. Es un prototipo académico:
-          funciona para el volumen de una PyME, no para un pico de tráfico.
+        <h3>Candela Cartoons <span class="badge-privado">Repo privado</span></h3>
+        <p>
+          Plataforma web con estética de televisor CRT retro para ver dibujos animados clásicos.
+          Agrega episodios de múltiples proveedores de video, resuelve la URL real de cada stream y la sirve
+          a través de un proxy HLS propio: un único catálogo y un único reproductor.
+          Incluye cuentas, favoritos, progreso, Top 10 y panel de administración con sincronización automática.
         </p>
-        <button type="button" class="ver-mas" aria-expanded="false" aria-controls="descripcion-atendo">Ver más</button>
         <div class="proyectos-tags">
-          <span class="tag">n8n</span>
-          <span class="tag">GPT-4o-mini</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">PostgreSQL</span>
           <span class="tag">React</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Express</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">Puppeteer</span>
           <span class="tag">Docker</span>
-          <span class="tag">Grafana</span>
         </div>
-        <div class="proyectos-acciones">
-          <button type="button" class="proyectos-btn proyectos-btn-multi-video"
-            aria-label="Ver los 3 videos del proyecto Atendo"
-            data-title="Atendo · Videos del proyecto">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
-            <span>Ver los 3 videos</span>
-            <span class="proyectos-btn-meta">2:55 · 6:00 · 11:25</span>
-          </button>
-          <a href="https://github.com/IgnacioOdorico/Automatizacion-de-Atencion-al-Cliente-en-E-commerce-e-Inteligencia-Artificial" target="_blank" class="proyectos-btn"><img
-              src="img/img-iconos/github-icono-2.png" alt="github icono">Ir a GitHub</a>
-        </div>
+        <button type="button" class="proyectos-btn proyectos-btn-video"
+          data-video="img/de proyectos/candela/candela-demo.mp4"
+          data-poster="img/de proyectos/candela/poster.webp"
+          data-title="Candela Cartoons · Demo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+          Ver video del proyecto
+        </button>
       </div>
 
       <div class="proyectos-card hidden-scroll" data-gallery>
-        <button type="button" class="proyectos-card-img galeria-trigger" data-index="0"
-          aria-label="Abrir galería de capturas de Active Trace">
-          <img src="img/de proyectos/active-trace/01-inicio-coordinador.webp" alt="Inicio del coordinador en Active Trace">
+        <button type="button" class="proyectos-card-img galeria-trigger" data-index="1"
+          aria-label="Abrir galería de capturas de Planova">
+          <img src="img/de proyectos/planova/02-proyectos.webp" alt="Dashboard de proyectos de Planova">
           <span class="galeria-overlay">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z M4 15l4-4 4 4 3-3 5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
             Ver capturas
           </span>
-          <span class="galeria-count">8 capturas</span>
+          <span class="galeria-count">4 capturas</span>
         </button>
         <div class="galeria-thumbs">
-          <button type="button" data-index="0" aria-label="Captura 1: Inicio del coordinador">
-            <img src="img/de proyectos/active-trace/01-inicio-coordinador.webp" alt="Inicio del coordinador" data-caption="Inicio del coordinador: alumnos en seguimiento, alumnos atrasados por comisión, tareas asignadas y actividad auditada del mes" loading="lazy">
+          <button type="button" data-index="0" aria-label="Captura 1: Login">
+            <img src="img/de proyectos/planova/01-login.webp" alt="Login" data-caption="Portal de acceso con autenticación JWT e interfaz Glassmorphism" loading="lazy">
           </button>
-          <button type="button" data-index="1" aria-label="Captura 2: Alumnos atrasados">
-            <img src="img/de proyectos/active-trace/02-alumnos-atrasados.webp" alt="Alumnos atrasados" data-caption="Alumnos atrasados: detección automática según el umbral de aprobación de cada materia, con progreso, gravedad y acceso directo para comunicarse" loading="lazy">
+          <button type="button" data-index="1" aria-label="Captura 2: Proyectos">
+            <img src="img/de proyectos/planova/02-proyectos.webp" alt="Proyectos" data-caption="Dashboard de proyectos con fecha de creación y cantidad de tareas" loading="lazy">
           </button>
-          <button type="button" data-index="2" aria-label="Captura 3: Comunicaciones">
-            <img src="img/de proyectos/active-trace/03-comunicaciones.webp" alt="Comunicaciones" data-caption="Comunicaciones: plantillas con variables por alumno, vista previa por destinatario y seguimiento del estado de cada envío" loading="lazy">
+          <button type="button" data-index="2" aria-label="Captura 3: Tablero Kanban">
+            <img src="img/de proyectos/planova/03-kanban.webp" alt="Tablero Kanban" data-caption="Tablero Kanban con drag &amp; drop, columnas personalizables, prioridades y auto-vencimiento" loading="lazy">
           </button>
-          <button type="button" data-index="3" aria-label="Captura 4: Portal del alumno">
-            <img src="img/de proyectos/active-trace/04-portal-alumno.webp" alt="Portal del alumno" data-caption="Portal del alumno: sus materias, avisos con confirmación de lectura y reserva de turnos de coloquio con cupos" loading="lazy">
-          </button>
-          <button type="button" data-index="4" aria-label="Captura 5: Inicio de finanzas">
-            <img src="img/de proyectos/active-trace/05-finanzas.webp" alt="Inicio de finanzas" data-caption="Inicio de finanzas: total liquidado del período, liquidación por rol y estado de las facturas docentes" loading="lazy">
-          </button>
-          <button type="button" data-index="5" data-more="+2" aria-label="Captura 6: Panel de auditoría (y 2 capturas más)">
-            <img src="img/de proyectos/active-trace/06-auditoria.webp" alt="Panel de auditoría" data-caption="Panel de auditoría: actividad diaria filtrable por fecha, materia y tipo de acción, con el log completo de acciones" loading="lazy">
-          </button>
-          <button type="button" data-index="6" aria-label="Captura 7: Grilla salarial">
-            <img src="img/de proyectos/active-trace/07-grilla-salarial.webp" alt="Grilla salarial" data-caption="Grilla salarial: salario base por rol con vigencia desde/hasta, más los adicionales (plus)" loading="lazy">
-          </button>
-          <button type="button" data-index="7" aria-label="Captura 8: Usuarios del tenant">
-            <img src="img/de proyectos/active-trace/08-usuarios.webp" alt="Usuarios del tenant" data-caption="Usuarios del tenant: alta, edición y desactivación, con los datos de cada institución aislados del resto" loading="lazy">
+          <button type="button" data-index="3" aria-label="Captura 4: Notas de tarea">
+            <img src="img/de proyectos/planova/04-notas.webp" alt="Notas de tarea" data-caption="Panel lateral de notas y comentarios por tarea" loading="lazy">
           </button>
         </div>
-        <h3>Active Trace</h3>
-        <p class="descripcion-recortable" id="descripcion-active-trace">
-          Plataforma Full Stack multi-tenant de gestión académica que se monta sobre Moodle para resolver todo lo
-          que el aula virtual no cubre: seguimiento de alumnos, comunicaciones, encuentros, coloquios, equipos
-          docentes y liquidación de honorarios. Importa las calificaciones exportadas del campus, detecta
-          automáticamente a los alumnos atrasados según el umbral de cada materia y permite contactarlos con
-          comunicaciones masivas que pasan por aprobación y se procesan en una cola con un worker en segundo plano.
-          Cada uno de los 7 roles (admin, coordinador, profesor, tutor, alumno, nexo y finanzas) tiene su propio
-          inicio y ve solo lo que sus permisos habilitan, con los datos aislados por institución. Seguridad desde el
-          diseño: JWT con refresh token rotativo, 2FA opcional, contraseñas con Argon2, datos sensibles (DNI, CUIL,
-          CBU) cifrados con AES-256 y una auditoría de solo escritura que registra incluso la impersonación de
-          usuarios. API REST en FastAPI con SQLAlchemy async y PostgreSQL, frontend en React + TypeScript, trazas
-          con OpenTelemetry y más de 1.300 tests automatizados.
+        <h3>Planova</h3>
+        <p>
+          Aplicación Full Stack de gestión de tareas con tablero Kanban, drag &amp; drop y diseño Glassmorphism
+          con temática espacial. API REST en Spring Boot con autenticación JWT y validación de propiedad en cada
+          petición; frontend en React + TypeScript. Incluye prioridades, vencimientos automáticos y notas por tarea.
+          Dockerizado: se levanta completo (MySQL, backend y frontend) con un solo comando.
         </p>
-        <button type="button" class="ver-mas" aria-expanded="false" aria-controls="descripcion-active-trace">Ver más</button>
         <div class="proyectos-tags">
-          <span class="tag">FastAPI</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">SQLAlchemy</span>
+          <span class="tag">Spring Boot</span>
           <span class="tag">React</span>
           <span class="tag">TypeScript</span>
-          <span class="tag">TanStack Query</span>
           <span class="tag">Tailwind</span>
+          <span class="tag">MySQL</span>
           <span class="tag">Docker</span>
-          <span class="tag">OpenTelemetry</span>
         </div>
         <div class="proyectos-acciones">
           <button type="button" class="proyectos-btn proyectos-btn-video"
-            data-video="img/de proyectos/active-trace/active-trace-demo.mp4"
-            data-poster="img/de proyectos/active-trace/poster.webp"
-            data-title="Active Trace · Demo">
+            data-video="img/de proyectos/planova/planova-demo.mp4"
+            data-poster="img/de proyectos/planova/poster.webp"
+            data-title="Planova · Demo">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
             Ver video del proyecto
           </button>
-          <a href="https://github.com/IgnacioOdorico/active-trace" target="_blank" class="proyectos-btn"><img
+          <a href="https://github.com/IgnacioOdorico/PLANOVA" target="_blank" class="proyectos-btn"><img
               src="img/img-iconos/github-icono-2.png" alt="github icono">Ir a GitHub</a>
         </div>
       </div>
