@@ -53,7 +53,15 @@ Con el texto nuevo el PDF pasó a 3 páginas; se recuperó con un texto más cor
 | T2 | `04466f4` feat: reescribir el sobre mi como egresado UTN con proyectos e IA aplicada |
 | T3 | `b95068c` feat: rehacer el CV como egresado UTN con seis proyectos y experiencia freelance |
 | T3 (fix) | `df3e591` fix: precisar afirmaciones del CV y del sobre mi segun la verificacion |
-| T4 | commit de este documento, del link anti-caché y del README |
+| T4 | `1ec9b86` docs: enlazar el CV nuevo con version anti-cache y actualizar el README |
+| T5 | refactor: sacar la fila de datos destacados del CV y del sobre mi |
+
+## Cambio aceptado: sin fila de datos destacados (T5)
+- [x] T5. Sacar las 4 cajas de números del CV y del "Sobre mí" y pasar "más de 3.000 tests automatizados" al texto. (inline: los mismos dos archivos ya conocidos + CSS sobrante)
+
+Motivo (acordado con el usuario): los números chicos en letra grande (6, 8) se ven chicos, el 780x y el 92,7 % necesitan la aclaración "en laboratorio" y no deberían ser titulares, y la fila ocupaba lo más visible de la página 1. El único dato fuerte sin asterisco (+3.000 tests) quedó en negrita dentro del perfil y del "Sobre mí".
+
+Check: el PDF sigue en 2 páginas y ahora Atendo entra en la página 1 (los 3 proyectos principales sin cambiar de página); el texto se extrae en orden. En el navegador, a 1280 px la tarjeta mide 826×821 y a 375 px se apila (345 px); `scrollWidth <= innerWidth`; CSS `?v=20261105c`; 0 errores de consola; no queda `.sobre-mi-datos` en el HTML ni en el CSS.
 
 ## Criterios de aceptación
 - No queda texto "estudiante" ni "cursando" en el sitio ni en el CV.

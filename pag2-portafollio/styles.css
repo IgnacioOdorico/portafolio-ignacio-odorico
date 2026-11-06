@@ -1941,7 +1941,7 @@ body,
 
 
 /* ===================================== */
-/* 🔹 SOBRE MÍ: texto largo + números     */
+/* 🔹 SOBRE MÍ: texto largo               */
 /* ===================================== */
 
 .sobre-mi-texto {
@@ -1966,38 +1966,6 @@ body,
   font-weight: 700;
 }
 
-.sobre-mi-datos {
-  list-style: none;
-  margin: 1.8rem 0 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.9rem;
-}
-
-.sobre-mi-datos li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-  padding: 0.9rem 0.6rem;
-  border: 2px solid var(--marron-oscuro);
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.06);
-  text-align: center;
-}
-
-.sobre-mi-datos strong {
-  font-size: 1.9rem;
-  line-height: 1;
-  font-weight: 800;
-}
-
-.sobre-mi-datos span {
-  font-size: 0.92rem;
-  line-height: 1.3;
-}
-
 @media (max-width: 1024px) {
   .sobre-mi-card .sobre-mi-texto p {
     font-size: 1.05rem;
@@ -2005,10 +1973,6 @@ body,
 
   .sobre-mi-card .sobre-mi-texto .sobre-mi-lead {
     font-size: 1.15rem;
-  }
-
-  .sobre-mi-datos {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -2037,18 +2001,5 @@ body,
 
   .sobre-mi-card .sobre-mi-texto .sobre-mi-lead {
     font-size: 1.05rem;
-  }
-
-  .sobre-mi-datos {
-    gap: 0.6rem;
-    margin-top: 1.3rem;
-  }
-
-  .sobre-mi-datos strong {
-    font-size: 1.5rem;
-  }
-
-  .sobre-mi-datos span {
-    font-size: 0.82rem;
   }
 }
