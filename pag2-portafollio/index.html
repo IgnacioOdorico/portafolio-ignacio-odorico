@@ -81,8 +81,9 @@
             de n8n encuentran negocios, la IA los analiza y les escribe el primer mensaje. También construí
             <strong>Active Trace</strong>, una plataforma multi-tenant con 7 roles, cifrado AES-256 y auditoría;
             <strong>Atendo</strong>, un asistente de IA que atiende clientes por WhatsApp, Telegram y correo (mi
-            trabajo integrador en la UTN); y <strong>FoodStore</strong>, con pagos por MercadoPago y pedidos en tiempo
-            real.
+            trabajo integrador en la UTN); <strong>FoodStore</strong>, con pagos por MercadoPago y pedidos en tiempo
+            real; y <strong>Candela Cartoons</strong>, donde hice ingeniería inversa de 17 servidores de video para
+            reproducirlos todos desde un solo reproductor.
           </p>
           <p>
             Trabajo con la IA como un equipo de desarrollo, no como un autocompletado: aplico
@@ -449,18 +450,27 @@
           </button>
         </div>
         <h3>Candela Cartoons <span class="badge-privado">Repo privado</span></h3>
-        <p>
-          Plataforma web con estética de televisor CRT retro para ver dibujos animados clásicos.
-          Agrega episodios de múltiples proveedores de video, resuelve la URL real de cada stream y la sirve
-          a través de un proxy HLS propio: un único catálogo y un único reproductor.
-          Incluye cuentas, favoritos, progreso, Top 10 y panel de administración con sincronización automática.
+        <p class="descripcion-recortable" id="descripcion-candela">
+          Plataforma web con estética de televisor CRT retro para ver dibujos animados clásicos: un solo catálogo y
+          un solo reproductor para episodios alojados en servidores de video de terceros. Lo más complejo es la capa
+          de extracción, con 17 resolvers (uno por servidor, más de 40 dominios) construidos con ingeniería inversa
+          de cada reproductor web: desofuscación de JavaScript empaquetado, descifrado AES-128, resolución de
+          desafíos proof-of-work, llamadas a las APIs internas de cada servicio e intercepción de red con Puppeteer
+          cuando no hay otra vía. Un registro elige el resolver según el dominio, intenta primero por HTTP y pasa a
+          Puppeteer si falla, cachea cada URL en SQLite según el vencimiento de cada proveedor y limita la
+          concurrencia por servidor. El video llega al navegador por un proxy HLS propio que reescribe las
+          playlists, reenvía los rangos y renueva el token cuando vence. Suma cuentas, favoritos, progreso, Top 10,
+          un panel de administración con sincronización programada que propone cambios para revisar y 96 archivos
+          de tests. Proyecto educativo: no aloja ni almacena video.
         </p>
+        <button type="button" class="ver-mas" aria-expanded="false" aria-controls="descripcion-candela">Ver más</button>
         <div class="proyectos-tags">
           <span class="tag">React</span>
           <span class="tag">Node.js</span>
           <span class="tag">Express</span>
           <span class="tag">SQLite</span>
           <span class="tag">Puppeteer</span>
+          <span class="tag">HLS</span>
           <span class="tag">Docker</span>
         </div>
         <button type="button" class="proyectos-btn proyectos-btn-video"

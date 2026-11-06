@@ -430,11 +430,14 @@
           <h3 class="entry-title">Candela Cartoons <span class="sub">· Streaming de dibujos clásicos con estética CRT</span></h3>
           <a class="entry-meta" href="https://ignacioodorico.github.io/portafolio-ignacio-odorico/#proyectos">Repo privado · ver demo</a>
         </div>
-        <p class="stack">React · Node.js · Express · SQLite · Puppeteer · Docker</p>
+        <p class="stack">React · Node.js · Express · SQLite · Puppeteer · HLS · Docker</p>
         <ul class="bullets">
-          <li>Unifica episodios de múltiples proveedores: resuelve la URL real de cada stream y la sirve por un
-            <strong>proxy HLS propio</strong>, con cuentas, favoritos, progreso, Top 10 y panel de administración con
-            sincronización automática.</li>
+          <li><strong>17 resolvers</strong>, uno por servidor de video de terceros (más de 40 dominios), construidos con
+            <strong>ingeniería inversa</strong> de cada reproductor: desofuscación de JavaScript, descifrado AES-128,
+            desafíos proof-of-work, APIs internas e intercepción de red con Puppeteer.</li>
+          <li>Registro por dominio con fallback de HTTP a Puppeteer, caché en SQLite según el vencimiento de cada
+            proveedor y <strong>proxy HLS propio</strong> que reescribe playlists y renueva tokens vencidos; cuentas,
+            favoritos, progreso y 96 archivos de tests. Proyecto educativo: no aloja video.</li>
         </ul>
       </article>
 
@@ -480,8 +483,9 @@
         <dt>Bases de datos</dt>
         <dd>PostgreSQL, MySQL, SQLite, MongoDB</dd>
         <dt>IA y automatización</dt>
-        <dd>n8n, OpenAI API (GPT-4o-mini), LLMs, prompt engineering, Apify, Puppeteer, bots de WhatsApp, Telegram y
-          email</dd>
+        <dd>n8n, OpenAI (GPT-4o-mini), LLMs, prompt engineering, bots de WhatsApp, Telegram y email</dd>
+        <dt>Scraping</dt>
+        <dd>Puppeteer, Apify, ingeniería inversa de reproductores web, streaming HLS</dd>
         <dt>Calidad y DevOps</dt>
         <dd>Pytest, TDD, Docker, GitHub Actions, OpenTelemetry, Grafana, Git y GitHub</dd>
         <dt>Seguridad</dt>
